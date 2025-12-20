@@ -1,20 +1,76 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# ⚡ Modern Developer Portfolio
 
-# Run and deploy your AI Studio app
+A high-performance, visually stunning developer portfolio built with the latest web technologies. Designed to showcase work with a premium feel, featuring smooth animations, a responsive layout, and an interactive user experience.
 
-This contains everything you need to run your app locally.
+![Project Preview](https://picsum.photos/seed/portfolio-preview/1200/600)
 
-View your app in AI Studio: https://ai.studio/apps/temp/2
+## ✨ Features
 
-## Run Locally
+- **🎨 Modern & Premium Design:** Dark-themed UI with vibrant accents and glassmorphism effects.
+- **🚀 High Performance:** Built with Vite for lightning-fast reloading and optimized production builds.
+- **✨ Smooth Animations:** Powered by `framer-motion` for engaging page transitions and scroll effects.
+- **📱 Fully Responsive:** Flawless experience across all devices, from mobile phones to 4K desktops.
+- **💼 Dynamic Project Filtering:** Filter projects by category (Websites, Apps) with instant feedback.
+- **📫 Interactive Contact:** One-click email copying with toast notifications and direct social links.
 
-**Prerequisites:**  Node.js
+## 🛠️ Tech Stack
 
+This project relies on a robust and modern technology stack:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **Framework:** [React 19](https://react.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Styling:** Vanilla CSS / Tailwind (inferred structure)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+
+## 🚀 Getting Started
+
+Follow these steps to set up the project locally on your machine.
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v16 or newer recommended)
+- [npm](https://www.npmjs.com/) (usually comes with Node.js)
+
+### Installation
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/yourusername/portfolio.git
+    cd portfolio
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open your browser:**
+    Navigate to `http://localhost:5173` to view the application.
+
+## 📦 Scripts
+
+- `npm run dev` - Starts the development server.
+- `npm run build` - Builds the application for production.
+- `npm run preview` - Locally preview the production build.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/oski3k">Oski3k</a>
+</p>

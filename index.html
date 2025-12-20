@@ -3,44 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevFolio | Full Stack Engineer</title>
+    <title>Oskar Śledź | Full Stack Developer</title>
+    <link rel="icon" type="image/png" href="/avatar.png" />
+    <meta
+      name="description"
+      content="Portfolio of Oskar Śledź - Full Stack Web & Android Developer specializing in React, Flutter, and Modern UI/UX Design."
+    />
+    <meta
+      name="keywords"
+      content="Oskar Śledź, Full Stack Developer, Web Developer, Android Developer, Flutter, React, Kotlin, Portfolio"
+    />
+    <meta name="author" content="Oskar Śledź" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oski.dev/" />
+    <meta property="og:title" content="Oskar Śledź | Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Building high-performance Modern Web Apps and Native Android Applications."
+    />
+    <meta property="og:image" content="/avatar.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://oski.dev/" />
+    <meta
+      property="twitter:title"
+      content="Oskar Śledź | Full Stack Developer"
+    />
+    <meta
+      property="twitter:description"
+      content="Building high-performance Modern Web Apps and Native Android Applications."
+    />
+    <meta property="twitter:image" content="/avatar.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
-              mono: ['Space Grotesk', 'monospace'],
+              sans: ["Outfit", "sans-serif"],
+              mono: ["Space Grotesk", "monospace"],
             },
             colors: {
               accent: {
-                DEFAULT: '#6366f1', // Indigo 500
-                glow: '#818cf8', // Indigo 400
+                DEFAULT: "#6366f1",
+                glow: "#818cf8",
               },
               dark: {
-                bg: '#020617', // Slate 950
-                card: '#0f172a', // Slate 900
-              }
+                bg: "#020617",
+                card: "#0f172a",
+              },
             },
             animation: {
-              'blob': 'blob 7s infinite',
+              blob: "blob 7s infinite",
             },
             keyframes: {
               blob: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
-              }
-            }
-          }
-        }
-      }
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                "100%": { transform: "translate(0px, 0px) scale(1)" },
+              },
+            },
+          },
+        },
+      };
     </script>
     <style>
       body {
@@ -48,36 +81,35 @@
         color: #f8fafc;
         overflow-x: hidden;
       }
-      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #020617; 
+        background: #020617;
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #334155;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569; 
+        background: #475569;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.2.3",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+          "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
