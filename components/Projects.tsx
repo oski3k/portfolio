@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
   return (
     <Section id='projects' className='bg-dark-card/50'>
       <div className='container mx-auto px-6'>
-        <div className='flex flex-col md:flex-row justify-between items-end mb-12'>
+        <div className='flex flex-col md:flex-row justify-between items-center md:items-end mb-12'>
           <div>
             <TextReveal>
               <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
@@ -57,7 +57,7 @@ const Projects: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className='flex bg-slate-900 p-1 rounded-lg border border-slate-800 mt-6 md:mt-0'
+            className='flex bg-slate-900 p-1 rounded-lg border border-slate-800 mt-6 md:mt-0 mx-auto md:mx-0'
           >
             {(["All", "Website", "App"] as const).map((tab) => (
               <button
