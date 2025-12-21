@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowDown,
   Github,
@@ -9,6 +9,7 @@ import {
   Globe,
   Code2,
 } from "lucide-react";
+import TextReveal from "./ui/TextReveal";
 
 const words = [
   "a Web Developer.",
@@ -20,6 +21,15 @@ const Hero: React.FC = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
@@ -42,45 +52,85 @@ const Hero: React.FC = () => {
   }, [currentText, isDeleting, currentWordIndex]);
 
   return (
-    <section className='min-h-screen flex flex-col justify-center items-center relative px-6 pt-20 overflow-hidden'>
-      <div className='absolute top-0 left-0 w-full h-full bg-gradient-to-b from-purple-900/10 to-transparent pointer-events-none' />
+    <section
+      ref={sectionRef}
+      className='min-h-screen flex flex-col justify-center items-center relative px-6 pt-20 overflow-hidden'
+    >
+      <motion.div
+        style={{ opacity }}
+        className='absolute top-0 left-0 w-full h-full bg-gradient-to-b from-purple-900/10 to-transparent pointer-events-none'
+      />
 
-      <div className='max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10'>
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className='order-2 md:order-1'
-        >
-          <div className='flex items-center gap-2 mb-4 text-accent font-mono font-medium px-3 py-1 bg-accent/10 w-fit rounded-full border border-accent/20'>
+      <motion.div
+        style={{ y }}
+        className='max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10'
+      >
+        <div className='order-2 md:order-1'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className='flex items-center gap-2 mb-4 text-accent font-mono font-medium px-3 py-1 bg-accent/10 w-fit rounded-full border border-accent/20'
+          >
             <Terminal className='w-4 h-4' />
             <span className='text-sm'>HELLO WORLD, I'M OSKAR</span>
+          </motion.div>
+
+          <div className='mb-6'>
+            <TextReveal delay={0.3}>
+              <h1 className='text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight'>
+                Building
+              </h1>
+            </TextReveal>
+            <TextReveal delay={0.5}>
+              <h1 className='text-5xl md:text-6xl font-bold tracking-tight leading-tight'>
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400'>
+                  Digital Experiences
+                </span>
+              </h1>
+            </TextReveal>
           </div>
 
-          <h1 className='text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight'>
-            Building <br />
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400'>
-              Digital Experiences
-            </span>
-          </h1>
-
-          <div className='text-xl md:text-3xl text-slate-300 h-10 mb-6 font-mono font-light'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className='text-xl md:text-3xl text-slate-300 h-10 mb-6 font-mono font-light'
+          >
             I am{" "}
             <span className='text-accent font-semibold'>{currentText}</span>
             <span className='animate-pulse text-accent'>_</span>
-          </div>
+          </motion.div>
 
-          <p className='text-slate-400 max-w-lg mb-8 leading-relaxed text-lg'>
-            I specialize in creating <strong>modern websites</strong> and native{" "}
-            <strong>Android applications</strong>. I combine the flexibility of{" "}
-            <span className='text-slate-200'>React</span> with the performance
-            of <span className='text-slate-200'>Kotlin</span> to deliver
-            products that look great and run smoothly.
-          </p>
+          <TextReveal delay={0.9}>
+            <p className='text-slate-400 max-w-lg mb-8 leading-relaxed text-lg'>
+              I specialize in creating <strong>modern websites</strong> and
+              native <strong>Android applications</strong>. I combine the
+              flexibility of <span className='text-slate-200'>React</span> with
+              the performance of <span className='text-slate-200'>Kotlin</span>{" "}
+              to deliver products that look great and run smoothly.
+            </p>
+          </TextReveal>
 
-          <div className='flex flex-wrap gap-4'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            className='flex flex-wrap gap-4'
+          >
             <a
               href='#projects'
+              onClick={(e) => {
+                e.preventDefault();
+                const projectsSection = document.getElementById("projects");
+                if (projectsSection) {
+                  const targetY =
+                    projectsSection.getBoundingClientRect().top +
+                    window.scrollY;
+                  // @ts-ignore
+                  window.lenis?.scrollTo(targetY, { duration: 3 });
+                }
+              }}
               className='px-8 py-3 bg-accent text-white font-bold rounded-lg hover:bg-accent-glow hover:translate-y-[-2px] transition-all shadow-[0_0_25px_rgba(99,102,241,0.4)] flex items-center gap-2'
             >
               <Globe className='w-5 h-5' />
@@ -107,8 +157,8 @@ const Hero: React.FC = () => {
                 <Linkedin className='w-5 h-5' />
               </a>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -160,7 +210,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -173,7 +223,20 @@ const Hero: React.FC = () => {
         }}
         className='absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 cursor-pointer hover:text-accent transition-colors'
       >
-        <a href='#about' aria-label='Scroll down'>
+        <a
+          href='#about'
+          aria-label='Scroll down'
+          onClick={(e) => {
+            e.preventDefault();
+            const aboutSection = document.getElementById("about");
+            if (aboutSection) {
+              const targetY =
+                aboutSection.getBoundingClientRect().top + window.scrollY;
+              // @ts-ignore
+              window.lenis?.scrollTo(targetY, { duration: 2.5 });
+            }
+          }}
+        >
           <ArrowDown className='w-8 h-8' />
         </a>
       </motion.div>

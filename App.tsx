@@ -5,9 +5,10 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Lenis from "lenis";
 
 import { ArrowUp } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 
 const App: React.FC = () => {
@@ -19,17 +20,41 @@ const App: React.FC = () => {
   });
 
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    lenisRef.current = lenis;
+    // @ts-ignore
+    window.lenis = lenis;
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    lenis.on("scroll", handleScroll);
+
+    return () => {
+      lenis.destroy();
+      // @ts-ignore
+      delete window.lenis;
+    };
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    lenisRef.current?.scrollTo(0, { duration: 1.5 });
   };
 
   return (

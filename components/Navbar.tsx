@@ -15,22 +15,57 @@ const Navbar: React.FC = () => {
       const sections = NAV_ITEMS.map((item) => item.href.substring(1));
       let current = "";
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            current = section;
-            break;
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const isAtBottom = scrollTop + windowHeight >= documentHeight - 50;
+
+      if (isAtBottom) {
+        current = sections[sections.length - 1];
+      } else {
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100) {
+              current = section;
+              break;
+            }
           }
         }
       }
+
       setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+
+    setIsOpen(false);
+
+    setTimeout(() => {
+      const targetId = href.substring(1);
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        const offset = 80;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - offset;
+
+        // @ts-ignore
+        window.lenis?.scrollTo(offsetPosition, { duration: 2 });
+      }
+    }, 300);
+  };
 
   return (
     <nav
@@ -41,7 +76,15 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className='container mx-auto px-6 flex justify-between items-center'>
-        <a href='#' className='flex items-center gap-2 group'>
+        <a
+          href='#'
+          className='flex items-center gap-2 group'
+          onClick={(e) => {
+            e.preventDefault();
+            // @ts-ignore
+            window.lenis?.scrollTo(0, { duration: 2 });
+          }}
+        >
           <div className='p-2 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors'>
             <Code2 className='w-6 h-6 text-accent' />
           </div>
@@ -55,6 +98,19 @@ const Navbar: React.FC = () => {
             <a
               key={item.label}
               href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                const targetId = item.href.substring(1);
+                const element = document.getElementById(targetId);
+                if (element) {
+                  const offset = 80;
+                  const elementPosition =
+                    element.getBoundingClientRect().top + window.scrollY;
+                  const offsetPosition = elementPosition - offset;
+                  // @ts-ignore
+                  window.lenis?.scrollTo(offsetPosition, { duration: 3 });
+                }
+              }}
               className={`text-sm font-medium transition-colors relative group ${
                 activeSection === item.href.substring(1)
                   ? "text-accent"
@@ -94,7 +150,7 @@ const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`text-lg font-medium ${
                     activeSection === item.href.substring(1)
                       ? "text-accent"

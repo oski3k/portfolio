@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Section from "./ui/Section";
 import { Project } from "../types";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { ExternalLink, Github, Gamepad2, Globe } from "lucide-react";
+import TextReveal from "./ui/TextReveal";
 
 const projectData: Project[] = [
   {
@@ -30,15 +36,29 @@ const Projects: React.FC = () => {
       <div className='container mx-auto px-6'>
         <div className='flex flex-col md:flex-row justify-between items-end mb-12'>
           <div>
-            <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
-              Featured <span className='text-accent'>Projects</span>
-            </h2>
-            <p className='text-slate-400 max-w-md'>
+            <TextReveal>
+              <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
+                Featured <span className='text-accent'>Projects</span>
+              </h2>
+            </TextReveal>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className='text-slate-400 max-w-md'
+            >
               A collection of my best work across web and mobile platforms.
-            </p>
+            </motion.p>
           </div>
 
-          <div className='flex bg-slate-900 p-1 rounded-lg border border-slate-800 mt-6 md:mt-0'>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className='flex bg-slate-900 p-1 rounded-lg border border-slate-800 mt-6 md:mt-0'
+          >
             {(["All", "Website", "App"] as const).map((tab) => (
               <button
                 key={tab}
@@ -52,7 +72,7 @@ const Projects: React.FC = () => {
                 {tab === "All" ? "All Work" : tab + "s"}
               </button>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <motion.div
@@ -60,8 +80,8 @@ const Projects: React.FC = () => {
           className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'
         >
           <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {filteredProjects.map((project, idx) => (
+              <ProjectCard key={project.id} project={project} index={idx} />
             ))}
           </AnimatePresence>
         </motion.div>
@@ -70,23 +90,40 @@ const Projects: React.FC = () => {
   );
 };
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectCard: React.FC<{ project: Project; index: number }> = ({
+  project,
+  index,
+}) => {
+  const cardRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9]);
+
   return (
     <motion.div
+      ref={cardRef}
       layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ y: -10 }}
       className='group relative rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-accent/50 transition-colors'
       style={{ perspective: 1000 }}
     >
       <div className='relative h-64 overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10 opacity-60' />
-        <img
+        <motion.img
+          style={{ y, scale }}
           src={project.image}
           alt={project.title}
-          className='w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out'
+          className='w-full h-full object-cover'
         />
         <div className='absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2'>
           {project.category === "App" ? (
@@ -101,7 +138,11 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       </div>
 
       <div className='p-6 relative z-20 -mt-10'>
-        <div className='bg-slate-900/90 backdrop-blur-xl p-6 rounded-xl border border-white/5 shadow-xl group-hover:translate-y-[-5px] transition-transform duration-300'>
+        <motion.div
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.3 }}
+          className='bg-slate-900/90 backdrop-blur-xl p-6 rounded-xl border border-white/5 shadow-xl'
+        >
           <h3 className='text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors'>
             {project.title}
           </h3>
@@ -138,7 +179,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               </a>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className='absolute inset-0 border-2 border-transparent group-hover:border-accent/20 rounded-2xl pointer-events-none transition-colors duration-300' />

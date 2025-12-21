@@ -3,6 +3,7 @@ import { Mail, Github, Linkedin, X, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Section from "./ui/Section";
 import { EMAIL, SOCIAL_LINKS } from "../constants";
+import TextReveal from "./ui/TextReveal";
 
 const Contact: React.FC = () => {
   const [showNotification, setShowNotification] = useState(false);
@@ -15,19 +16,28 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <Section id='contact' className='pb-10 pt-20 relative'>
+    <Section id='contact' className='pb-32 pt-32 relative'>
       <div className='container mx-auto px-6 text-center'>
         <div className='max-w-2xl mx-auto'>
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
-            Let's Build Something <br />
-            <span className='text-accent bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-500'>
-              Extraordinary
-            </span>
-          </h2>
-          <p className='text-slate-400 mb-10 text-lg'>
+          <TextReveal>
+            <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+              Let's Build Something <br />
+              <span className='text-accent bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-500'>
+                Extraordinary
+              </span>
+            </h2>
+          </TextReveal>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className='text-slate-400 mb-10 text-lg'
+          >
             I'm currently looking for new opportunities. Whether you have a
             question or just want to say hi, my inbox is always open.
-          </p>
+          </motion.p>
 
           <div className='flex justify-center gap-8 mb-12'>
             {[
@@ -39,7 +49,7 @@ const Contact: React.FC = () => {
               { icon: X, href: SOCIAL_LINKS.X },
               { icon: Mail, href: `mailto:${EMAIL}` },
             ].map((Item, idx) => (
-              <a
+              <motion.a
                 key={idx}
                 href={Item.href}
                 target={Item.href.startsWith("mailto") ? undefined : "_blank"}
@@ -49,11 +59,24 @@ const Contact: React.FC = () => {
                     handleCopyEmail(e);
                   }
                 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 + idx * 0.1 }}
+                whileHover={{ y: -5, scale: 1.1 }}
                 className='group relative p-4 rounded-full bg-slate-900 border border-slate-800 hover:border-accent transition-all duration-300'
               >
-                <div className='absolute inset-0 bg-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity' />
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: idx * 0.2,
+                  }}
+                  className='absolute inset-0 bg-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity'
+                />
                 <Item.icon className='w-6 h-6 text-slate-400 group-hover:text-white relative z-10' />
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
