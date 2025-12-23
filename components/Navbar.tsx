@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
-import { NAV_ITEMS } from "../constants";
+import { Menu, X, Code2, Languages } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const languages = [
+    { code: "en" as const, flag: "🇬🇧", name: "English" },
+    { code: "pl" as const, flag: "🇵🇱", name: "Polski" },
+    { code: "de" as const, flag: "🇩🇪", name: "Deutsch" },
+    { code: "fr" as const, flag: "🇫🇷", name: "Français" },
+    { code: "es" as const, flag: "🇪🇸", name: "Español" },
+  ];
+
+  const NAV_ITEMS = [
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +57,21 @@ const Navbar: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [t]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        langMenuOpen &&
+        !(event.target as Element).closest(".language-dropdown")
+      ) {
+        setLangMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [langMenuOpen]);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -94,39 +124,83 @@ const Navbar: React.FC = () => {
         </a>
 
         <div className='hidden md:flex items-center gap-8'>
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                const targetId = item.href.substring(1);
-                const element = document.getElementById(targetId);
-                if (element) {
-                  const offset = 80;
-                  const elementPosition =
-                    element.getBoundingClientRect().top + window.scrollY;
-                  const offsetPosition = elementPosition - offset;
-                  // @ts-ignore
-                  window.lenis?.scrollTo(offsetPosition, { duration: 3 });
-                }
-              }}
-              className={`text-sm font-medium transition-colors relative group ${
-                activeSection === item.href.substring(1)
-                  ? "text-accent"
-                  : "text-slate-400 hover:text-accent"
-              }`}
-            >
-              {item.label}
-              <span
-                className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
+          <div className='flex items-center gap-8'>
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = item.href.substring(1);
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    const offset = 80;
+                    const elementPosition =
+                      element.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - offset;
+                    // @ts-ignore
+                    window.lenis?.scrollTo(offsetPosition, { duration: 3 });
+                  }
+                }}
+                className={`text-sm font-medium transition-colors relative group ${
                   activeSection === item.href.substring(1)
-                    ? "w-full"
-                    : "w-0 group-hover:w-full"
+                    ? "text-accent"
+                    : "text-slate-400 hover:text-accent"
                 }`}
-              ></span>
-            </a>
-          ))}
+              >
+                {item.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                    activeSection === item.href.substring(1)
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              </a>
+            ))}
+          </div>
+
+          <div className='relative language-dropdown'>
+            <button
+              onClick={() => setLangMenuOpen(!langMenuOpen)}
+              className='flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-accent/50 transition-all group'
+              aria-label='Change language'
+            >
+              <Languages className='w-4 h-4 text-slate-400 group-hover:text-accent transition-colors' />
+              <span className='text-sm font-medium text-slate-300 group-hover:text-white transition-colors'>
+                {languages.find((l) => l.code === language)?.flag}
+              </span>
+            </button>
+
+            <AnimatePresence>
+              {langMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className='absolute top-full right-0 mt-2 bg-slate-900 border border-slate-800 rounded-lg shadow-xl overflow-hidden z-50 min-w-[150px]'
+                >
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code);
+                        setLangMenuOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
+                        language === lang.code
+                          ? "bg-accent/20 text-accent"
+                          : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.name}</span>
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         <button
@@ -160,6 +234,31 @@ const Navbar: React.FC = () => {
                   {item.label}
                 </a>
               ))}
+
+              <div className='border-t border-slate-800 pt-4 mt-2'>
+                <p className='text-xs text-slate-500 mb-3 uppercase tracking-wider'>
+                  Language
+                </p>
+                <div className='grid grid-cols-2 gap-2'>
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code);
+                        setIsOpen(false);
+                      }}
+                      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${
+                        language === lang.code
+                          ? "bg-accent/20 text-accent border border-accent/50"
+                          : "bg-slate-900 text-slate-300 border border-slate-800 hover:border-accent/50"
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span className='font-medium'>{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

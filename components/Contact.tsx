@@ -4,8 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Section from "./ui/Section";
 import { EMAIL, SOCIAL_LINKS } from "../constants";
 import TextReveal from "./ui/TextReveal";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
   const [showNotification, setShowNotification] = useState(false);
 
   const handleCopyEmail = (e: React.MouseEvent) => {
@@ -21,9 +23,9 @@ const Contact: React.FC = () => {
         <div className='max-w-2xl mx-auto'>
           <TextReveal>
             <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
-              Let's Build Something <br />
+              {t.contact.title1} <br />
               <span className='text-accent bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-500'>
-                Extraordinary
+                {t.contact.title2}
               </span>
             </h2>
           </TextReveal>
@@ -35,8 +37,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className='text-slate-400 mb-10 text-lg'
           >
-            I'm currently looking for new opportunities. Whether you have a
-            question or just want to say hi, my inbox is always open.
+            {t.contact.subtitle}
           </motion.p>
 
           <div className='flex justify-center gap-8 mb-12'>
@@ -82,13 +83,15 @@ const Contact: React.FC = () => {
         </div>
 
         <div className='border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm'>
-          <p>© {new Date().getFullYear()} Oski3K. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Oski3K. {t.contact.copyright}
+          </p>
           <div className='flex gap-6 mt-4 md:mt-0'>
             <a href='#' className='hover:text-slate-300'>
-              Privacy Policy
+              {t.contact.privacyPolicy}
             </a>
             <a href='#' className='hover:text-slate-300'>
-              Terms of Service
+              {t.contact.termsOfService}
             </a>
           </div>
         </div>
@@ -106,8 +109,8 @@ const Contact: React.FC = () => {
               <Check className='w-5 h-5 text-green-500' />
             </div>
             <div>
-              <h4 className='font-bold text-sm'>Email Copied!</h4>
-              <p className='text-xs text-slate-400'>Ready to paste</p>
+              <h4 className='font-bold text-sm'>{t.contact.emailCopied}</h4>
+              <p className='text-xs text-slate-400'>{t.contact.readyToPaste}</p>
             </div>
           </motion.div>
         )}

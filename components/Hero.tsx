@@ -10,14 +10,11 @@ import {
   Code2,
 } from "lucide-react";
 import TextReveal from "./ui/TextReveal";
-
-const words = [
-  "a Web Developer.",
-  "an Android Developer.",
-  "a Full Stack Coder.",
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
+  const words = [t.hero.role1, t.hero.role2, t.hero.role3];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -49,7 +46,7 @@ const Hero: React.FC = () => {
     }, typeSpeed);
 
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentWordIndex]);
+  }, [currentText, isDeleting, currentWordIndex, words]);
 
   return (
     <section
@@ -73,19 +70,19 @@ const Hero: React.FC = () => {
             className='flex items-center gap-2 mb-4 text-accent font-mono font-medium px-3 py-1 bg-accent/10 w-fit rounded-full border border-accent/20'
           >
             <Terminal className='w-4 h-4' />
-            <span className='text-sm'>HELLO WORLD, I'M OSKAR</span>
+            <span className='text-sm'>{t.hero.greeting}</span>
           </motion.div>
 
           <div className='mb-6'>
             <TextReveal delay={0.3}>
               <h1 className='text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight'>
-                Building
+                {t.hero.title1}
               </h1>
             </TextReveal>
             <TextReveal delay={0.5}>
               <h1 className='text-5xl md:text-6xl font-bold tracking-tight leading-tight'>
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400'>
-                  Digital Experiences
+                  {t.hero.title2}
                 </span>
               </h1>
             </TextReveal>
@@ -97,18 +94,14 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className='text-xl md:text-3xl text-slate-300 h-10 mb-6 font-mono font-light'
           >
-            I am{" "}
+            {t.hero.iAm}{" "}
             <span className='text-accent font-semibold'>{currentText}</span>
             <span className='animate-pulse text-accent'>_</span>
           </motion.div>
 
           <TextReveal delay={0.9}>
             <p className='text-slate-400 max-w-lg mb-8 leading-relaxed text-lg'>
-              I specialize in creating <strong>modern websites</strong> and
-              native <strong>Android applications</strong>. I combine the
-              flexibility of <span className='text-slate-200'>React</span> with
-              the performance of <span className='text-slate-200'>Kotlin</span>{" "}
-              to deliver products that look great and run smoothly.
+              {t.hero.description}
             </p>
           </TextReveal>
 
@@ -134,7 +127,7 @@ const Hero: React.FC = () => {
               className='px-8 py-3 bg-accent text-white font-bold rounded-lg hover:bg-accent-glow hover:translate-y-[-2px] transition-all shadow-[0_0_25px_rgba(99,102,241,0.4)] flex items-center gap-2'
             >
               <Globe className='w-5 h-5' />
-              View My Work
+              {t.hero.viewWork}
             </a>
 
             <div className='flex gap-3'>
@@ -202,10 +195,14 @@ const Hero: React.FC = () => {
             </motion.div>
 
             <div className='absolute inset-6 rounded-full overflow-hidden border-2 border-slate-700/50 bg-slate-900 z-10 flex items-center justify-center group'>
+              <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40 z-10 pointer-events-none' />
               <img
-                src='/avatar.png'
+                src='/avatar.jpg'
                 alt='Oskar - Developer Profile'
-                className='w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500'
+                className='w-full h-full object-cover opacity-75 group-hover:opacity-85 group-hover:scale-105 transition-all duration-500'
+                style={{
+                  filter: "brightness(0.75) contrast(1.1) saturate(0.9)",
+                }}
               />
             </div>
           </div>

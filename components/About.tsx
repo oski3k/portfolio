@@ -3,32 +3,34 @@ import Section from "./ui/Section";
 import { Smartphone, Layout, Code2, Terminal } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import TextReveal from "./ui/TextReveal";
-
-const skills = [
-  {
-    icon: <Layout className='w-6 h-6 text-cyan-400' />,
-    title: "Frontend Ecosystem",
-    desc: "React, Svelte, Tailwind CSS",
-  },
-  {
-    icon: <Smartphone className='w-6 h-6 text-purple-400' />,
-    title: "Mobile Engineering",
-    desc: "Flutter, Kotlin, Android SDK",
-  },
-  {
-    icon: <Code2 className='w-6 h-6 text-emerald-400' />,
-    title: "Core Languages",
-    desc: "TypeScript, JavaScript (ES6+), HTML5/CSS3",
-  },
-  {
-    icon: <Terminal className='w-6 h-6 text-pink-400' />,
-    title: "Dev Tools",
-    desc: "Git, VS Code, Android Studio, NPM",
-  },
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 const About: React.FC = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
+
+  const skills = [
+    {
+      icon: <Layout className='w-6 h-6 text-cyan-400' />,
+      title: t.about.skills.frontend.title,
+      desc: t.about.skills.frontend.desc,
+    },
+    {
+      icon: <Smartphone className='w-6 h-6 text-purple-400' />,
+      title: t.about.skills.mobile.title,
+      desc: t.about.skills.mobile.desc,
+    },
+    {
+      icon: <Code2 className='w-6 h-6 text-emerald-400' />,
+      title: t.about.skills.languages.title,
+      desc: t.about.skills.languages.desc,
+    },
+    {
+      icon: <Terminal className='w-6 h-6 text-pink-400' />,
+      title: t.about.skills.tools.title,
+      desc: t.about.skills.tools.desc,
+    },
+  ];
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -47,7 +49,8 @@ const About: React.FC = () => {
         <motion.div style={{ scale, opacity }} className='w-full md:w-1/2'>
           <TextReveal>
             <h2 className='text-3xl md:text-4xl font-bold text-white mb-6'>
-              About <span className='text-accent'>Me</span>
+              {t.about.title}{" "}
+              <span className='text-accent'>{t.about.titleAccent}</span>
             </h2>
           </TextReveal>
 
@@ -61,16 +64,10 @@ const About: React.FC = () => {
             <div className='absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/20 transition-colors duration-500'></div>
 
             <p className='text-slate-300 leading-relaxed mb-6'>
-              I am an ambitious IT student transforming passion into
-              professional code. For the past year, I have focused on building
-              scalable Web and Mobile applications that solve real-world
-              problems.
+              {t.about.paragraph1}
             </p>
             <p className='text-slate-300 leading-relaxed'>
-              I combine technical education with a practical, project-based
-              approach. I am driven by 'clean code' principles and the desire to
-              master new technologies quickly. My goal is to bridge the gap
-              between functional logic and smooth user experience.
+              {t.about.paragraph2}
             </p>
           </motion.div>
         </motion.div>

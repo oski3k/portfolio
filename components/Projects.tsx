@@ -9,23 +9,25 @@ import {
 } from "framer-motion";
 import { ExternalLink, Github, Gamepad2, Globe } from "lucide-react";
 import TextReveal from "./ui/TextReveal";
-
-const projectData: Project[] = [
-  {
-    id: 1,
-    title: "Motivio: Habit Tracker & Goals",
-    category: "App",
-    description:
-      "A fast, customizable habit tracker and goal setter with gamification, mood tracking, and daily inspiration to help you build better routines.",
-    tech: ["Flutter", "Dart", "Android", "Firebase"],
-    image: "/motivio.png",
-    githubUrl: "",
-    liveUrl: "https://play.google.com/store/apps/details?id=com.oski3k.motivio",
-  },
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Projects: React.FC = () => {
+  const { t } = useLanguage();
   const [filter, setFilter] = useState<"All" | "Website" | "App">("All");
+
+  const projectData: Project[] = [
+    {
+      id: 1,
+      title: "Motivio: Habit Tracker & Goals",
+      category: "App",
+      description: t.projects.motivio.description,
+      tech: ["Flutter", "Dart", "Android", "Firebase"],
+      image: "/motivio.png",
+      githubUrl: "",
+      liveUrl:
+        "https://play.google.com/store/apps/details?id=com.oski3k.motivio",
+    },
+  ];
 
   const filteredProjects = projectData.filter(
     (p) => filter === "All" || p.category === filter
@@ -38,7 +40,8 @@ const Projects: React.FC = () => {
           <div>
             <TextReveal>
               <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
-                Featured <span className='text-accent'>Projects</span>
+                {t.projects.title}{" "}
+                <span className='text-accent'>{t.projects.titleAccent}</span>
               </h2>
             </TextReveal>
             <motion.p
@@ -48,7 +51,7 @@ const Projects: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className='text-slate-400 max-w-md'
             >
-              A collection of my best work across web and mobile platforms.
+              {t.projects.subtitle}
             </motion.p>
           </div>
 
@@ -69,7 +72,11 @@ const Projects: React.FC = () => {
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                {tab === "All" ? "All Work" : tab + "s"}
+                {tab === "All"
+                  ? t.projects.filterAll
+                  : tab === "Website"
+                  ? t.projects.filterWebsites
+                  : t.projects.filterApps}
               </button>
             ))}
           </motion.div>
@@ -94,6 +101,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
   project,
   index,
 }) => {
+  const { t } = useLanguage();
   const cardRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -132,7 +140,9 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
             <Globe size={14} className='text-cyan-400' />
           )}
           <span className='text-xs font-medium text-white'>
-            {project.category}
+            {project.category === "App"
+              ? t.projects.categoryApp
+              : t.projects.categoryWebsite}
           </span>
         </div>
       </div>
@@ -167,15 +177,17 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
                 href={project.githubUrl}
                 className='flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-white transition-colors'
               >
-                <Github size={16} /> Code
+                <Github size={16} /> {t.projects.code}
               </a>
             )}
             {project.liveUrl && project.liveUrl !== "#" && (
               <a
                 href={project.liveUrl}
+                target='_blank'
+                rel='noopener noreferrer'
                 className='flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-glow transition-colors'
               >
-                <ExternalLink size={16} /> Live Demo
+                <ExternalLink size={16} /> {t.projects.liveDemo}
               </a>
             )}
           </div>
