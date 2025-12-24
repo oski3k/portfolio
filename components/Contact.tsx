@@ -5,6 +5,10 @@ import Section from "./ui/Section";
 import { EMAIL, SOCIAL_LINKS } from "../constants";
 import TextReveal from "./ui/TextReveal";
 import { useLanguage } from "../contexts/LanguageContext";
+import {
+  trackSocialClick,
+  trackContactFormSubmit,
+} from "../hooks/useAnalytics";
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
@@ -42,13 +46,14 @@ const Contact: React.FC = () => {
 
           <div className='flex justify-center gap-8 mb-12'>
             {[
-              { icon: Github, href: SOCIAL_LINKS.GITHUB },
+              { icon: Github, href: SOCIAL_LINKS.GITHUB, name: "GitHub" },
               {
                 icon: Linkedin,
                 href: SOCIAL_LINKS.LINKEDIN,
+                name: "LinkedIn",
               },
-              { icon: X, href: SOCIAL_LINKS.X },
-              { icon: Mail, href: `mailto:${EMAIL}` },
+              { icon: X, href: SOCIAL_LINKS.X, name: "X/Twitter" },
+              { icon: Mail, href: `mailto:${EMAIL}`, name: "Email" },
             ].map((Item, idx) => (
               <motion.a
                 key={idx}
@@ -58,6 +63,9 @@ const Contact: React.FC = () => {
                 onClick={(e) => {
                   if (Item.href.startsWith("mailto")) {
                     handleCopyEmail(e);
+                    trackContactFormSubmit("email_copy");
+                  } else {
+                    trackSocialClick(Item.name, Item.href);
                   }
                 }}
                 initial={{ opacity: 0, y: 20 }}

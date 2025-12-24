@@ -10,6 +10,7 @@ import {
 import { ExternalLink, Github, Gamepad2, Globe } from "lucide-react";
 import TextReveal from "./ui/TextReveal";
 import { useLanguage } from "../contexts/LanguageContext";
+import { trackProjectClick } from "../hooks/useAnalytics";
 
 const Projects: React.FC = () => {
   const { t } = useLanguage();
@@ -175,6 +176,9 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
             {project.githubUrl && project.githubUrl !== "#" && (
               <a
                 href={project.githubUrl}
+                onClick={() =>
+                  trackProjectClick(project.title, project.githubUrl)
+                }
                 className='flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-white transition-colors'
               >
                 <Github size={16} /> {t.projects.code}
@@ -185,6 +189,9 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
                 href={project.liveUrl}
                 target='_blank'
                 rel='noopener noreferrer'
+                onClick={() =>
+                  trackProjectClick(project.title, project.liveUrl)
+                }
                 className='flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-glow transition-colors'
               >
                 <ExternalLink size={16} /> {t.projects.liveDemo}

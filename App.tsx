@@ -11,8 +11,13 @@ import { ArrowUp } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { usePageView, useTimeOnPage } from "./hooks/useAnalytics";
 
 const App: React.FC = () => {
+  // Initialize Firebase Analytics tracking
+  usePageView("Portfolio Home");
+  useTimeOnPage("Portfolio Home");
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,

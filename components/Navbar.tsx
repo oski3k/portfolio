@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Code2, Languages } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { trackNavigation, trackLanguageChange } from "../hooks/useAnalytics";
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -131,6 +132,7 @@ const Navbar: React.FC = () => {
                 href={item.href}
                 onClick={(e) => {
                   e.preventDefault();
+                  trackNavigation(item.label);
                   const targetId = item.href.substring(1);
                   const element = document.getElementById(targetId);
                   if (element) {
@@ -187,6 +189,7 @@ const Navbar: React.FC = () => {
                       key={lang.code}
                       onClick={() => {
                         setLanguage(lang.code);
+                        trackLanguageChange(lang.code);
                         setLangMenuOpen(false);
                       }}
                       className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
@@ -247,6 +250,7 @@ const Navbar: React.FC = () => {
                       key={lang.code}
                       onClick={() => {
                         setLanguage(lang.code);
+                        trackLanguageChange(lang.code);
                         setIsOpen(false);
                       }}
                       className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${
