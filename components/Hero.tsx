@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className='min-h-screen flex flex-col justify-center items-center relative px-6 pt-20 overflow-hidden'
+      className='min-h-screen flex flex-col justify-center items-center relative px-6 pt-20 pb-40 md:pb-0 overflow-hidden'
     >
       <motion.div
         style={{ opacity }}
@@ -159,7 +159,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className='order-1 md:order-2 flex justify-center relative'
         >
-          <div className='relative w-72 h-72 md:w-[450px] md:h-[450px]'>
+          <div className='relative w-80 h-80 md:w-[520px] md:h-[520px]'>
             <div className='absolute inset-0 rounded-full border border-slate-800 animate-[spin_10s_linear_infinite]' />
             <div className='absolute inset-4 rounded-full border border-slate-800 border-dashed animate-[spin_15s_linear_infinite_reverse]' />
             <div className='absolute inset-1/4 rounded-full bg-gradient-to-tr from-accent/30 to-purple-500/20 blur-3xl animate-pulse' />
@@ -197,7 +197,7 @@ const Hero: React.FC = () => {
             <div className='absolute inset-6 rounded-full overflow-hidden border-2 border-slate-700/50 bg-slate-900 z-10 flex items-center justify-center group'>
               <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40 z-10 pointer-events-none' />
               <img
-                src='/avatar.jpg'
+                src='/avatar.png'
                 alt='Oskar - Developer Profile'
                 className='w-full h-full object-cover opacity-75 group-hover:opacity-85 group-hover:scale-105 transition-all duration-500'
                 style={{

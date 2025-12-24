@@ -100,12 +100,12 @@ export const translations: Record<Language, Translations> = {
           desc: "React, Svelte, Tailwind CSS",
         },
         mobile: {
-          title: "Inżynieria Mobilna",
-          desc: "Flutter, Kotlin, Android SDK",
+          title: "Aplikacje Mobilne",
+          desc: "Flutter, Dart, Android SDK",
         },
         languages: {
           title: "Główne Języki",
-          desc: "TypeScript, JavaScript (ES6+), HTML5/CSS3",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
         },
         tools: {
           title: "Narzędzia Dev",
@@ -173,12 +173,12 @@ export const translations: Record<Language, Translations> = {
           desc: "React, Svelte, Tailwind CSS",
         },
         mobile: {
-          title: "Mobile Engineering",
-          desc: "Flutter, Kotlin, Android SDK",
+          title: "Mobile Apps",
+          desc: "Flutter, Dart, Android SDK",
         },
         languages: {
           title: "Core Languages",
-          desc: "TypeScript, JavaScript (ES6+), HTML5/CSS3",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
         },
         tools: {
           title: "Dev Tools",
@@ -245,12 +245,12 @@ export const translations: Record<Language, Translations> = {
           desc: "React, Svelte, Tailwind CSS",
         },
         mobile: {
-          title: "Mobile-Entwicklung",
-          desc: "Flutter, Kotlin, Android SDK",
+          title: "Mobile Apps",
+          desc: "Flutter, Dart, Android SDK",
         },
         languages: {
           title: "Kernsprachen",
-          desc: "TypeScript, JavaScript (ES6+), HTML5/CSS3",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
         },
         tools: {
           title: "Entwicklungstools",
@@ -318,12 +318,12 @@ export const translations: Record<Language, Translations> = {
           desc: "React, Svelte, Tailwind CSS",
         },
         mobile: {
-          title: "Développement Mobile",
-          desc: "Flutter, Kotlin, Android SDK",
+          title: "Applications Mobiles",
+          desc: "Flutter, Dart, Android SDK",
         },
         languages: {
           title: "Langages Principaux",
-          desc: "TypeScript, JavaScript (ES6+), HTML5/CSS3",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
         },
         tools: {
           title: "Outils de Développement",
@@ -391,12 +391,12 @@ export const translations: Record<Language, Translations> = {
           desc: "React, Svelte, Tailwind CSS",
         },
         mobile: {
-          title: "Ingeniería Móvil",
-          desc: "Flutter, Kotlin, Android SDK",
+          title: "Aplicaciones Móviles",
+          desc: "Flutter, Dart, Android SDK",
         },
         languages: {
           title: "Lenguajes Principales",
-          desc: "TypeScript, JavaScript (ES6+), HTML5/CSS3",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
         },
         tools: {
           title: "Herramientas de Desarrollo",

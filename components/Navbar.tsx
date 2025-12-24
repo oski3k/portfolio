@@ -11,11 +11,11 @@ const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
 
   const languages = [
-    { code: "en" as const, flag: "🇬🇧", name: "English" },
-    { code: "pl" as const, flag: "🇵🇱", name: "Polski" },
-    { code: "de" as const, flag: "🇩🇪", name: "Deutsch" },
-    { code: "fr" as const, flag: "🇫🇷", name: "Français" },
-    { code: "es" as const, flag: "🇪🇸", name: "Español" },
+    { code: "en" as const, flag: "gb", name: "English" },
+    { code: "pl" as const, flag: "pl", name: "Polski" },
+    { code: "de" as const, flag: "de", name: "Deutsch" },
+    { code: "fr" as const, flag: "fr", name: "Français" },
+    { code: "es" as const, flag: "es", name: "Español" },
   ];
 
   const NAV_ITEMS = [
@@ -167,9 +167,11 @@ const Navbar: React.FC = () => {
               aria-label='Change language'
             >
               <Languages className='w-4 h-4 text-slate-400 group-hover:text-accent transition-colors' />
-              <span className='text-sm font-medium text-slate-300 group-hover:text-white transition-colors'>
-                {languages.find((l) => l.code === language)?.flag}
-              </span>
+              <span
+                className={`fi fi-${
+                  languages.find((l) => l.code === language)?.flag
+                } text-sm`}
+              ></span>
             </button>
 
             <AnimatePresence>
@@ -187,14 +189,14 @@ const Navbar: React.FC = () => {
                         setLanguage(lang.code);
                         setLangMenuOpen(false);
                       }}
-                      className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
+                      className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                         language === lang.code
                           ? "bg-accent/20 text-accent"
                           : "text-slate-300 hover:bg-slate-800 hover:text-white"
                       }`}
                     >
-                      <span>{lang.flag}</span>
-                      <span>{lang.name}</span>
+                      <span className={`fi fi-${lang.flag} text-sm`}></span>
+                      <span className='font-medium'>{lang.name}</span>
                     </button>
                   ))}
                 </motion.div>
@@ -253,7 +255,7 @@ const Navbar: React.FC = () => {
                           : "bg-slate-900 text-slate-300 border border-slate-800 hover:border-accent/50"
                       }`}
                     >
-                      <span>{lang.flag}</span>
+                      <span className={`fi fi-${lang.flag} text-xl`}></span>
                       <span className='font-medium'>{lang.name}</span>
                     </button>
                   ))}
