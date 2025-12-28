@@ -65,6 +65,11 @@ export interface Translations {
     copyright: string;
     privacyPolicy: string;
     termsOfService: string;
+    successTitle: string;
+    successMessage: string;
+    errorTitle: string;
+    errorMessage: string;
+    close: string;
   };
 }
 
@@ -140,6 +145,12 @@ export const translations: Record<Language, Translations> = {
       copyright: "Wszelkie prawa zastrzeżone.",
       privacyPolicy: "Polityka Prywatności",
       termsOfService: "Warunki Usługi",
+      successTitle: "Wiadomość Wysłana!",
+      successMessage:
+        "Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe.",
+      errorTitle: "Błąd Wysyłania",
+      errorMessage: "Coś poszło nie tak. Spróbuj ponownie później.",
+      close: "Zamknij",
     },
   },
   en: {
@@ -212,6 +223,12 @@ export const translations: Record<Language, Translations> = {
       copyright: "All rights reserved.",
       privacyPolicy: "Privacy Policy",
       termsOfService: "Terms of Service",
+      successTitle: "Message Sent!",
+      successMessage:
+        "Thank you for reaching out. I'll get back to you as soon as possible.",
+      errorTitle: "Sending Error",
+      errorMessage: "Something went wrong. Please try again later.",
+      close: "Close",
     },
   },
   de: {
@@ -285,6 +302,13 @@ export const translations: Record<Language, Translations> = {
       copyright: "Alle Rechte vorbehalten.",
       privacyPolicy: "Datenschutz",
       termsOfService: "Nutzungsbedingungen",
+      successTitle: "Nachricht gesendet!",
+      successMessage:
+        "Danke für Ihre Nachricht. Ich werde mich so schnell wie möglich bei Ihnen melden.",
+      errorTitle: "Sendefehler",
+      errorMessage:
+        "Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut.",
+      close: "Schließen",
     },
   },
   fr: {
@@ -358,6 +382,13 @@ export const translations: Record<Language, Translations> = {
       copyright: "Tous droits réservés.",
       privacyPolicy: "Politique de Confidentialité",
       termsOfService: "Conditions d'Utilisation",
+      successTitle: "Message envoyé !",
+      successMessage:
+        "Merci de m'avoir contacté. Je vous répondrai dès que possible.",
+      errorTitle: "Erreur d'envoi",
+      errorMessage:
+        "Quelque chose s'est mal passé. Veuillez réessayer plus tard.",
+      close: "Fermer",
     },
   },
   es: {
@@ -431,6 +462,12 @@ export const translations: Record<Language, Translations> = {
       copyright: "Todos los derechos reservados.",
       privacyPolicy: "Política de Privacidad",
       termsOfService: "Términos de Servicio",
+      successTitle: "¡Mensaje enviado!",
+      successMessage:
+        "Gracias por contactarme. Te responderé lo antes posible.",
+      errorTitle: "Error de envío",
+      errorMessage: "Algo salió mal. Por favor, inténtalo de nuevo más tarde.",
+      close: "Cerrar",
     },
   },
 };

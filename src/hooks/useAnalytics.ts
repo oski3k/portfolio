@@ -1,11 +1,11 @@
 // Custom hook for Firebase Analytics tracking
-import { useEffect } from "react";
-import { analytics } from "../firebase";
 import {
   logEvent,
-  setUserProperties,
   setCurrentScreen,
+  setUserProperties,
 } from "firebase/analytics";
+import { useEffect } from "react";
+import { analytics } from "../lib/firebase";
 
 // Track page views
 export const usePageView = (pageName: string) => {

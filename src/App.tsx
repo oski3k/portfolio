@@ -1,15 +1,12 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import Lenis from "lenis";
-
 import { ArrowUp } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
-import { AnimatePresence } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import Navbar from "./components/layout/Navbar";
+import About from "./components/sections/About";
+import Contact from "./components/sections/Contact";
+import Hero from "./components/sections/Hero";
+import Projects from "./components/sections/Projects";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { usePageView, useTimeOnPage } from "./hooks/useAnalytics";
 
@@ -65,24 +62,24 @@ const App: React.FC = () => {
 
   return (
     <LanguageProvider>
-      <div className='bg-dark-bg min-h-screen text-slate-200 selection:bg-accent selection:text-white'>
+      <div className="bg-dark-bg min-h-screen text-slate-200 selection:bg-accent selection:text-white">
         <motion.div
-          className='fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-50'
+          className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-50"
           style={{ scaleX }}
         />
 
         <Navbar />
 
-        <main className='relative z-10'>
+        <main className="relative z-10">
           <Hero />
           <About />
           <Projects />
           <Contact />
         </main>
 
-        <div className='fixed inset-0 pointer-events-none z-0 overflow-hidden'>
-          <div className='absolute top-0 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob mix-blend-screen opacity-30'></div>
-          <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] animate-blob animation-delay-2000 mix-blend-screen opacity-30'></div>
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob mix-blend-screen opacity-30"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] animate-blob animation-delay-2000 mix-blend-screen opacity-30"></div>
         </div>
 
         <AnimatePresence>
@@ -92,10 +89,10 @@ const App: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               onClick={scrollToTop}
-              className='fixed bottom-8 right-8 z-50 p-3 bg-accent text-white rounded-full shadow-lg hover:bg-accent-glow transition-colors'
-              aria-label='Scroll to top'
+              className="fixed bottom-8 right-8 z-50 p-3 bg-accent text-white rounded-full shadow-lg hover:bg-accent-glow transition-colors"
+              aria-label="Scroll to top"
             >
-              <ArrowUp className='w-6 h-6' />
+              <ArrowUp className="w-6 h-6" />
             </motion.button>
           )}
         </AnimatePresence>

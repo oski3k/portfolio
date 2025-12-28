@@ -1,0 +1,77 @@
+rules_version = '2';
+
+// 🔐 Firestore Security Rules
+// Te reguły pozwalają niezalogowanym użytkownikom na ZAPIS wiadomości,
+// ale NIE pozwalają na odczyt danych (maksymalna prywatność)
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ✅ Reguły dla kolekcji 'messages'
+    match /messages/{messageId} {
+      
+      // ✅ ZEZWÓL NA ZAPIS (create) - każdy użytkownik może wysłać wiadomość
+      // Walidacja danych:
+      // - Wymagane pola: name, email, subject, message, timestamp, read
+      // - name: string, długość 2-100 znaków
+      // - email: string, długość 5-100 znaków, zawiera '@'
+      // - subject: string, długość 3-200 znaków
+      // - message: string, długość 10-5000 znaków
+      // - timestamp: timestamp (musi być serwerowy timestamp)
+      // - read: boolean (domyślnie false)
+      allow create: if request.resource.data.keys().hasAll(['name', 'email', 'subject', 'message', 'timestamp', 'read'])
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() >= 2
+                    && request.resource.data.name.size() <= 100
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() >= 5
+                    && request.resource.data.email.size() <= 100
+                    && request.resource.data.email.matches('.*@.*')
+                    && request.resource.data.subject is string
+                    && request.resource.data.subject.size() >= 3
+                    && request.resource.data.subject.size() <= 200
+                    && request.resource.data.message is string
+                    && request.resource.data.message.size() >= 10
+                    && request.resource.data.message.size() <= 5000
+                    && request.resource.data.timestamp is timestamp
+                    && request.resource.data.read is bool
+                    && request.resource.data.read == false;
+      
+      // ❌ ZAKAZ ODCZYTU - użytkownicy NIE mogą czytać wiadomości
+      // Tylko ty (jako właściciel projektu) będziesz mógł je czytać przez Firebase Console
+      allow read: if false;
+      
+      // ❌ ZAKAZ AKTUALIZACJI - użytkownicy NIE mogą edytować wiadomości
+      allow update: if false;
+      
+      // ❌ ZAKAZ USUWANIA - użytkownicy NIE mogą usuwać wiadomości
+      allow delete: if false;
+    }
+    
+    // ❌ ZAKAZ DOSTĘPU DO INNYCH KOLEKCJI
+    // Wszystkie inne kolekcje są domyślnie zablokowane
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+// 📝 INSTRUKCJE WDROŻENIA:
+// 
+// 1. Zaloguj się do Firebase Console (https://console.firebase.google.com)
+// 2. Wybierz swój projekt
+// 3. W menu po lewej stronie kliknij "Firestore Database"
+// 4. Jeśli to pierwsze użycie Firestore:
+//    - Kliknij "Create database"
+//    - Wybierz tryb "Start in production mode"
+//    - Wybierz lokalizację (np. europe-west3 dla Polski)
+// 5. Kliknij na zakładkę "Rules" u góry
+// 6. Skopiuj i wklej CAŁĄ zawartość tego pliku do edytora reguł
+// 7. Kliknij "Publish" aby zastosować reguły
+//
+// ⚠️ WAŻNE UWAGI:
+// - Te reguły są bardzo restrykcyjne i bezpieczne
+// - Użytkownicy mogą tylko DODAWAĆ wiadomości, ale nie mogą ich czytać ani modyfikować
+// - Tylko administrator projektu (Ty) może czytać wiadomości przez Firebase Console
+// - Jeśli chcesz czytać wiadomości z poziomu kodu (np. panel admina), 
+//   musisz zaimplementować Firebase Authentication i dodać odpowiednie reguły
