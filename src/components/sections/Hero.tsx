@@ -8,13 +8,13 @@ import {
   Smartphone,
   Terminal,
 } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLanguage } from "../../contexts/LanguageContext";
 import TextReveal from "../ui/TextReveal";
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
-  const words = [t.hero.role1, t.hero.role2, t.hero.role3];
+  const words = useMemo(() => [t.hero.role1, t.hero.role2, t.hero.role3], [t]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);

@@ -1,6 +1,7 @@
+import type { Translations } from "../lib/i18n";
 import { Project } from "../types";
 
-export const getProjects = (t: any): Project[] => [
+export const getProjects = (t: Translations): Project[] => [
   {
     id: 1,
     title: "Motivio: Habit Tracker & Goals",

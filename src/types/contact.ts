@@ -14,7 +14,6 @@ export interface ContactFormErrors {
 
 export type ContactFormStatus = "idle" | "loading" | "success" | "error";
 
-export interface ContactMessage extends ContactFormData {
-  timestamp: any; // Using 'any' to avoid strict Firestore dependency in types for now, or we can import Timestamp
-  read: boolean;
+export interface SubmitContactForm {
+  (data: ContactFormData): Promise<{ success: boolean; error?: string }>;
 }

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { AtSign, FileText, MessageSquare, Send, User } from "lucide-react";
 import React from "react";
-import { useLanguage } from "../../../contexts/LanguageContext";
 import { useContactForm } from "../../../hooks/useContactForm";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
@@ -13,7 +12,6 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
-  const { t } = useLanguage();
   const {
     formData,
     errors,

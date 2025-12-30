@@ -1,6 +1,7 @@
 import { Code2, Layout, Smartphone, Terminal } from "lucide-react";
+import type { Translations } from "../lib/i18n";
 
-export const getSkills = (t: any) => [
+export const getSkills = (t: Translations) => [
   {
     icon: <Layout className="w-6 h-6 text-cyan-400" />,
     title: t.about.skills.frontend.title,
