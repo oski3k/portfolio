@@ -33,7 +33,6 @@ const App: React.FC = () => {
     });
 
     lenisRef.current = lenis;
-    // @ts-ignore
     window.lenis = lenis;
 
     function raf(time: number) {
@@ -51,7 +50,6 @@ const App: React.FC = () => {
 
     return () => {
       lenis.destroy();
-      // @ts-ignore
       delete window.lenis;
     };
   }, []);

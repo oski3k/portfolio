@@ -32,9 +32,7 @@ const Navbar: React.FC = () => {
     const element = document.querySelector(href);
     if (element) {
       const top = element.getBoundingClientRect().top + window.scrollY - 100;
-      // @ts-ignore
       if (window.lenis) {
-        // @ts-ignore
         window.lenis.scrollTo(top, { duration: 1.5 });
       } else {
         window.scrollTo({ top, behavior: "smooth" });

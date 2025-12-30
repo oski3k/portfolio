@@ -36,15 +36,16 @@ export const useMagneticEffect = () => {
 
     const element = ref.current;
     if (element) {
-      // @ts-ignore - TS doesn't like the mouse event type here sometimes
-      element.addEventListener("mousemove", handleMouseMove);
+      element.addEventListener("mousemove", handleMouseMove as EventListener);
       element.addEventListener("mouseleave", handleMouseLeave);
     }
 
     return () => {
       if (element) {
-        // @ts-ignore
-        element.removeEventListener("mousemove", handleMouseMove);
+        element.removeEventListener(
+          "mousemove",
+          handleMouseMove as EventListener
+        );
         element.removeEventListener("mouseleave", handleMouseLeave);
       }
     };

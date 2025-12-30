@@ -57,6 +57,7 @@ export interface Translations {
     liveDemo: string;
   };
   contact: {
+    contactBadge: string;
     title1: string;
     title2: string;
     subtitle: string;
@@ -136,6 +137,7 @@ export const translations: Record<Language, Translations> = {
       liveDemo: "Zobacz",
     },
     contact: {
+      contactBadge: "Skontaktuj się ze mną",
       title1: "Zbudujmy Coś",
       title2: "Niezwykłego",
       subtitle:
@@ -214,6 +216,7 @@ export const translations: Record<Language, Translations> = {
       liveDemo: "View",
     },
     contact: {
+      contactBadge: "Get in touch",
       title1: "Let's Build Something",
       title2: "Extraordinary",
       subtitle:
@@ -293,6 +296,7 @@ export const translations: Record<Language, Translations> = {
       liveDemo: "Ansehen",
     },
     contact: {
+      contactBadge: "Kontaktieren Sie mich",
       title1: "Lass uns etwas",
       title2: "Außergewöhnliches schaffen",
       subtitle:
@@ -373,6 +377,7 @@ export const translations: Record<Language, Translations> = {
       liveDemo: "Voir",
     },
     contact: {
+      contactBadge: "Contactez-moi",
       title1: "Créons Quelque Chose",
       title2: "d'Extraordinaire",
       subtitle:
@@ -453,6 +458,7 @@ export const translations: Record<Language, Translations> = {
       liveDemo: "Ver",
     },
     contact: {
+      contactBadge: "Contáctame",
       title1: "Construyamos Algo",
       title2: "Extraordinario",
       subtitle:

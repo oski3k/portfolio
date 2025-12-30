@@ -120,7 +120,6 @@ const Hero: React.FC = () => {
                   const targetY =
                     projectsSection.getBoundingClientRect().top +
                     window.scrollY;
-                  // @ts-ignore
                   window.lenis?.scrollTo(targetY, { duration: 3 });
                 }
               }}
@@ -229,7 +228,6 @@ const Hero: React.FC = () => {
             if (aboutSection) {
               const targetY =
                 aboutSection.getBoundingClientRect().top + window.scrollY;
-              // @ts-ignore
               window.lenis?.scrollTo(targetY, { duration: 2.5 });
             }
           }}
