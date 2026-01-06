@@ -1,4 +1,17 @@
-export type Language = "pl" | "en" | "de" | "fr" | "es";
+export type Language =
+  | "pl"
+  | "en"
+  | "de"
+  | "fr"
+  | "es"
+  | "it"
+  | "pt"
+  | "ru"
+  | "zh"
+  | "ja"
+  | "ar"
+  | "hi"
+  | "nl";
 
 export interface Translations {
   nav: {
@@ -71,6 +84,18 @@ export interface Translations {
     errorTitle: string;
     errorMessage: string;
     close: string;
+    form: {
+      nameLabel: string;
+      namePlaceholder: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      subjectLabel: string;
+      subjectPlaceholder: string;
+      messageLabel: string;
+      messagePlaceholder: string;
+      sendButton: string;
+      sending: string;
+    };
   };
 }
 
@@ -153,6 +178,18 @@ export const translations: Record<Language, Translations> = {
       errorTitle: "Błąd Wysyłania",
       errorMessage: "Coś poszło nie tak. Spróbuj ponownie później.",
       close: "Zamknij",
+      form: {
+        nameLabel: "Imię",
+        namePlaceholder: "Jan Kowalski",
+        emailLabel: "Email",
+        emailPlaceholder: "jan@example.com",
+        subjectLabel: "Temat",
+        subjectPlaceholder: "Zapytanie ofertowe / Współpraca",
+        messageLabel: "Treść wiadomości",
+        messagePlaceholder: "Cześć! Chciałbym/chciałabym omówić...",
+        sendButton: "Wyślij wiadomość",
+        sending: "Wysyłanie...",
+      },
     },
   },
   en: {
@@ -232,6 +269,18 @@ export const translations: Record<Language, Translations> = {
       errorTitle: "Sending Error",
       errorMessage: "Something went wrong. Please try again later.",
       close: "Close",
+      form: {
+        nameLabel: "Name",
+        namePlaceholder: "John Doe",
+        emailLabel: "Email",
+        emailPlaceholder: "john@example.com",
+        subjectLabel: "Subject",
+        subjectPlaceholder: "Quote Request / Collaboration",
+        messageLabel: "Message",
+        messagePlaceholder: "Hi! I would like to discuss...",
+        sendButton: "Send Message",
+        sending: "Sending...",
+      },
     },
   },
   de: {
@@ -313,6 +362,18 @@ export const translations: Record<Language, Translations> = {
       errorMessage:
         "Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut.",
       close: "Schließen",
+      form: {
+        nameLabel: "Name",
+        namePlaceholder: "Max Mustermann",
+        emailLabel: "E-Mail",
+        emailPlaceholder: "max@beispiel.de",
+        subjectLabel: "Betreff",
+        subjectPlaceholder: "Angebotsanfrage / Zusammenarbeit",
+        messageLabel: "Nachricht",
+        messagePlaceholder: "Hallo! Ich würde gerne besprechen...",
+        sendButton: "Nachricht senden",
+        sending: "Wird gesendet...",
+      },
     },
   },
   fr: {
@@ -394,6 +455,18 @@ export const translations: Record<Language, Translations> = {
       errorMessage:
         "Quelque chose s'est mal passé. Veuillez réessayer plus tard.",
       close: "Fermer",
+      form: {
+        nameLabel: "Nom",
+        namePlaceholder: "Jean Dupont",
+        emailLabel: "E-mail",
+        emailPlaceholder: "jean@exemple.com",
+        subjectLabel: "Sujet",
+        subjectPlaceholder: "Demande de devis / Collaboration",
+        messageLabel: "Message",
+        messagePlaceholder: "Bonjour ! J'aimerais discuter de...",
+        sendButton: "Envoyer le message",
+        sending: "Envoi en cours...",
+      },
     },
   },
   es: {
@@ -474,6 +547,747 @@ export const translations: Record<Language, Translations> = {
       errorTitle: "Error de envío",
       errorMessage: "Algo salió mal. Por favor, inténtalo de nuevo más tarde.",
       close: "Cerrar",
+      form: {
+        nameLabel: "Nombre",
+        namePlaceholder: "Juan Pérez",
+        emailLabel: "Correo electrónico",
+        emailPlaceholder: "juan@ejemplo.com",
+        subjectLabel: "Asunto",
+        subjectPlaceholder: "Solicitud de presupuesto / Colaboración",
+        messageLabel: "Mensaje",
+        messagePlaceholder: "¡Hola! Me gustaría discutir...",
+        sendButton: "Enviar mensaje",
+        sending: "Enviando...",
+      },
+    },
+  },
+  it: {
+    nav: {
+      about: "Chi sono",
+      projects: "Progetti",
+      contact: "Contatto",
+    },
+    hero: {
+      greeting: "CIAO MONDO, SONO OSKAR",
+      title1: "Creo",
+      title2: "Esperienze Digitali",
+      iAm: "Sono",
+      role1: "uno Sviluppatore Web.",
+      role2: "uno Sviluppatore Android.",
+      role3: "un Programmatore Full Stack.",
+      description:
+        "Mi specializzo nella creazione di siti web moderni e applicazioni Android native. Combino la flessibilità di React con le prestazioni di Kotlin per fornire prodotti che hanno un bell'aspetto e funzionano senza problemi.",
+      viewWork: "Vedi il mio lavoro",
+    },
+    about: {
+      title: "Chi",
+      titleAccent: "Sono",
+      paragraph1:
+        "Sono uno studente di informatica ambizioso che trasforma la passione in codice professionale. Nell'ultimo anno mi sono concentrato sulla creazione di applicazioni Web e Mobile scalabili che risolvono problemi reali.",
+      paragraph2:
+        "Combino l'educazione tecnica con un approccio pratico basato sui progetti. Sono guidato dai principi del 'codice pulito' e dal desiderio di padroneggiare rapidamente nuove tecnologie. Il mio obiettivo è collegare la logica funzionale con un'esperienza utente fluida.",
+      skills: {
+        frontend: {
+          title: "Ecosistema Frontend",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "App Mobili",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "Linguaggi Principali",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "Strumenti di Sviluppo",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "Progetti",
+      titleAccent: "In Evidenza",
+      subtitle:
+        "Una raccolta dei miei migliori lavori su piattaforme web e mobili.",
+      filterAll: "Tutti i Lavori",
+      filterWebsites: "Siti Web",
+      filterApps: "App",
+      categoryApp: "App",
+      categoryWebsite: "Sito Web",
+      motivio: {
+        description:
+          "Un'app per la salute mentale e la produttività. Offre tracker dell'umore, diario, esercizi di respirazione e citazioni quotidiane per ispirare l'azione.",
+      },
+      code: "Codice",
+      liveDemo: "Vedi",
+    },
+    contact: {
+      contactBadge: "Contattami",
+      title1: "Costruiamo Qualcosa",
+      title2: "di Straordinario",
+      subtitle:
+        "Attualmente sto cercando nuove opportunità. Che tu abbia una domanda o voglia semplicemente salutare, la mia casella di posta è sempre aperta.",
+      emailCopied: "Email Copiata!",
+      readyToPaste: "Pronto per incollare",
+      copyright: "Tutti i diritti riservati.",
+      privacyPolicy: "Privacy Policy",
+      termsOfService: "Termini di Servizio",
+      successTitle: "Messaggio Inviato!",
+      successMessage:
+        "Grazie per avermi contattato. Ti risponderò il prima possibile.",
+      errorTitle: "Errore di Invio",
+      errorMessage: "Qualcosa è andato storto. Riprova più tardi.",
+      close: "Chiudi",
+      form: {
+        nameLabel: "Nome",
+        namePlaceholder: "Mario Rossi",
+        emailLabel: "Email",
+        emailPlaceholder: "mario@esempio.it",
+        subjectLabel: "Oggetto",
+        subjectPlaceholder: "Richiesta preventivo / Collaborazione",
+        messageLabel: "Messaggio",
+        messagePlaceholder: "Ciao! Vorrei discutere di...",
+        sendButton: "Invia messaggio",
+        sending: "Invio in corso...",
+      },
+    },
+  },
+  pt: {
+    nav: {
+      about: "Sobre",
+      projects: "Projetos",
+      contact: "Contato",
+    },
+    hero: {
+      greeting: "OLÁ MUNDO, SOU OSKAR",
+      title1: "Criando",
+      title2: "Experiências Digitais",
+      iAm: "Sou",
+      role1: "um Desenvolvedor Web.",
+      role2: "um Desenvolvedor Android.",
+      role3: "um Programador Full Stack.",
+      description:
+        "Especializo-me na criação de sites modernos e aplicativos Android nativos. Combino a flexibilidade do React com o desempenho do Kotlin para entregar produtos que têm ótima aparência e funcionam perfeitamente.",
+      viewWork: "Ver meu trabalho",
+    },
+    about: {
+      title: "Sobre",
+      titleAccent: "Mim",
+      paragraph1:
+        "Sou um estudante de TI ambicioso transformando paixão em código profissional. No último ano, concentrei-me na construção de aplicações Web e Mobile escaláveis que resolvem problemas do mundo real.",
+      paragraph2:
+        "Combino educação técnica com uma abordagem prática baseada em projetos. Sou guiado pelos princípios de 'código limpo' e pelo desejo de dominar rapidamente novas tecnologias. Meu objetivo é conectar a lógica funcional com uma experiência de usuário fluida.",
+      skills: {
+        frontend: {
+          title: "Ecossistema Frontend",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "Apps Móveis",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "Linguagens Principais",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "Ferramentas de Dev",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "Projetos",
+      titleAccent: "Em Destaque",
+      subtitle:
+        "Uma coleção dos meus melhores trabalhos em plataformas web e mobile.",
+      filterAll: "Todos os Trabalhos",
+      filterWebsites: "Sites",
+      filterApps: "Apps",
+      categoryApp: "App",
+      categoryWebsite: "Site",
+      motivio: {
+        description:
+          "Um app para saúde mental e produtividade. Oferece rastreador de humor, diário, exercícios de respiração e citações diárias inspiradoras.",
+      },
+      code: "Código",
+      liveDemo: "Ver",
+    },
+    contact: {
+      contactBadge: "Entre em contato",
+      title1: "Vamos Construir Algo",
+      title2: "Extraordinário",
+      subtitle:
+        "Atualmente estou procurando novas oportunidades. Se você tem uma pergunta ou apenas quer dizer oi, minha caixa de entrada está sempre aberta.",
+      emailCopied: "Email Copiado!",
+      readyToPaste: "Pronto para colar",
+      copyright: "Todos os direitos reservados.",
+      privacyPolicy: "Política de Privacidade",
+      termsOfService: "Termos de Serviço",
+      successTitle: "Mensagem Enviada!",
+      successMessage:
+        "Obrigado por entrar em contato. Responderei o mais breve possível.",
+      errorTitle: "Erro de Envio",
+      errorMessage: "Algo deu errado. Por favor, tente novamente mais tarde.",
+      close: "Fechar",
+      form: {
+        nameLabel: "Nome",
+        namePlaceholder: "João Silva",
+        emailLabel: "Email",
+        emailPlaceholder: "joao@exemplo.com",
+        subjectLabel: "Assunto",
+        subjectPlaceholder: "Pedido de orçamento / Colaboração",
+        messageLabel: "Mensagem",
+        messagePlaceholder: "Olá! Gostaria de discutir...",
+        sendButton: "Enviar mensagem",
+        sending: "Enviando...",
+      },
+    },
+  },
+  ru: {
+    nav: {
+      about: "Обо мне",
+      projects: "Проекты",
+      contact: "Контакт",
+    },
+    hero: {
+      greeting: "ПРИВЕТ МИР, Я ОСКАР",
+      title1: "Создаю",
+      title2: "Цифровые Впечатления",
+      iAm: "Я",
+      role1: "Веб-разработчик.",
+      role2: "Android-разработчик.",
+      role3: "Full Stack программист.",
+      description:
+        "Я специализируюсь на создании современных веб-сайтов и нативных Android-приложений. Я сочетаю гибкость React с производительностью Kotlin для создания продуктов, которые отлично выглядят и работают плавно.",
+      viewWork: "Посмотреть работы",
+    },
+    about: {
+      title: "Обо",
+      titleAccent: "Мне",
+      paragraph1:
+        "Я амбициозный студент IT, превращающий страсть в профессиональный код. В течение последнего года я сосредоточился на создании масштабируемых веб и мобильных приложений, решающих реальные проблемы.",
+      paragraph2:
+        "Я сочетаю техническое образование с практическим подходом, основанным на проектах. Меня направляют принципы 'чистого кода' и желание быстро осваивать новые технологии. Моя цель - связать функциональную логику с плавным пользовательским опытом.",
+      skills: {
+        frontend: {
+          title: "Frontend Экосистема",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "Мобильные Приложения",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "Основные Языки",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "Инструменты Разработки",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "Избранные",
+      titleAccent: "Проекты",
+      subtitle: "Коллекция моих лучших работ на веб и мобильных платформах.",
+      filterAll: "Все Работы",
+      filterWebsites: "Веб-сайты",
+      filterApps: "Приложения",
+      categoryApp: "Приложение",
+      categoryWebsite: "Веб-сайт",
+      motivio: {
+        description:
+          "Приложение для психического здоровья и продуктивности. Включает трекер настроения, дневник, дыхательные упражнения и ежедневные цитаты для вдохновения.",
+      },
+      code: "Код",
+      liveDemo: "Смотреть",
+    },
+    contact: {
+      contactBadge: "Свяжитесь со мной",
+      title1: "Давайте Создадим Что-то",
+      title2: "Необычное",
+      subtitle:
+        "В настоящее время я ищу новые возможности. Есть ли у вас вопрос или вы просто хотите поздороваться, мой почтовый ящик всегда открыт.",
+      emailCopied: "Email Скопирован!",
+      readyToPaste: "Готов к вставке",
+      copyright: "Все права защищены.",
+      privacyPolicy: "Политика Конфиденциальности",
+      termsOfService: "Условия Использования",
+      successTitle: "Сообщение Отправлено!",
+      successMessage: "Спасибо за обращение. Я отвечу как можно скорее.",
+      errorTitle: "Ошибка Отправки",
+      errorMessage: "Что-то пошло не так. Пожалуйста, попробуйте позже.",
+      close: "Закрыть",
+      form: {
+        nameLabel: "Имя",
+        namePlaceholder: "Иван Иванов",
+        emailLabel: "Email",
+        emailPlaceholder: "ivan@example.com",
+        subjectLabel: "Тема",
+        subjectPlaceholder: "Запрос предложения / Сотрудничество",
+        messageLabel: "Сообщение",
+        messagePlaceholder: "Привет! Я хотел бы обсудить...",
+        sendButton: "Отправить сообщение",
+        sending: "Отправка...",
+      },
+    },
+  },
+  zh: {
+    nav: {
+      about: "关于",
+      projects: "项目",
+      contact: "联系",
+    },
+    hero: {
+      greeting: "你好世界，我是奥斯卡",
+      title1: "构建",
+      title2: "数字体验",
+      iAm: "我是",
+      role1: "Web开发者。",
+      role2: "Android开发者。",
+      role3: "全栈程序员。",
+      description:
+        "我专注于创建现代网站和原生Android应用程序。我将React的灵活性与Kotlin的性能相结合，提供外观出色且运行流畅的产品。",
+      viewWork: "查看作品",
+    },
+    about: {
+      title: "关于",
+      titleAccent: "我",
+      paragraph1:
+        "我是一名雄心勃勃的IT学生，将热情转化为专业代码。在过去的一年里，我专注于构建可扩展的Web和移动应用程序，解决实际问题。",
+      paragraph2:
+        "我将技术教育与基于项目的实践方法相结合。我遵循'干净代码'原则，渴望快速掌握新技术。我的目标是将功能逻辑与流畅的用户体验联系起来。",
+      skills: {
+        frontend: {
+          title: "前端生态系统",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "移动应用",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "核心语言",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "开发工具",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "精选",
+      titleAccent: "项目",
+      subtitle: "我在Web和移动平台上的最佳作品集。",
+      filterAll: "所有作品",
+      filterWebsites: "网站",
+      filterApps: "应用",
+      categoryApp: "应用",
+      categoryWebsite: "网站",
+      motivio: {
+        description:
+          "一款心理健康和生产力应用。提供情绪追踪器、日记、呼吸练习和每日励志名言。",
+      },
+      code: "代码",
+      liveDemo: "查看",
+    },
+    contact: {
+      contactBadge: "联系我",
+      title1: "让我们构建",
+      title2: "非凡之物",
+      subtitle:
+        "我目前正在寻找新的机会。无论您有问题还是只是想打个招呼，我的收件箱始终开放。",
+      emailCopied: "邮箱已复制！",
+      readyToPaste: "准备粘贴",
+      copyright: "版权所有。",
+      privacyPolicy: "隐私政策",
+      termsOfService: "服务条款",
+      successTitle: "消息已发送！",
+      successMessage: "感谢您的联系。我会尽快回复您。",
+      errorTitle: "发送错误",
+      errorMessage: "出了点问题。请稍后再试。",
+      close: "关闭",
+      form: {
+        nameLabel: "姓名",
+        namePlaceholder: "张三",
+        emailLabel: "邮箱",
+        emailPlaceholder: "zhang@example.com",
+        subjectLabel: "主题",
+        subjectPlaceholder: "报价请求 / 合作",
+        messageLabel: "消息",
+        messagePlaceholder: "你好！我想讨论...",
+        sendButton: "发送消息",
+        sending: "发送中...",
+      },
+    },
+  },
+  ja: {
+    nav: {
+      about: "私について",
+      projects: "プロジェクト",
+      contact: "お問い合わせ",
+    },
+    hero: {
+      greeting: "こんにちは世界、私はオスカーです",
+      title1: "構築する",
+      title2: "デジタル体験",
+      iAm: "私は",
+      role1: "Webデベロッパーです。",
+      role2: "Androidデベロッパーです。",
+      role3: "フルスタックプログラマーです。",
+      description:
+        "モダンなWebサイトとネイティブAndroidアプリケーションの作成を専門としています。Reactの柔軟性とKotlinのパフォーマンスを組み合わせて、見た目が良くスムーズに動作する製品を提供します。",
+      viewWork: "作品を見る",
+    },
+    about: {
+      title: "私に",
+      titleAccent: "ついて",
+      paragraph1:
+        "私は情熱をプロフェッショナルなコードに変える野心的なIT学生です。過去1年間、実際の問題を解決するスケーラブルなWebおよびモバイルアプリケーションの構築に注力してきました。",
+      paragraph2:
+        "技術教育と実践的なプロジェクトベースのアプローチを組み合わせています。「クリーンコード」の原則と新しい技術を迅速に習得したいという願望に導かれています。私の目標は、機能的なロジックとスムーズなユーザー体験を結びつけることです。",
+      skills: {
+        frontend: {
+          title: "フロントエンドエコシステム",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "モバイルアプリ",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "コア言語",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "開発ツール",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "注目の",
+      titleAccent: "プロジェクト",
+      subtitle: "Webおよびモバイルプラットフォームでの私の最高の作品集。",
+      filterAll: "すべての作品",
+      filterWebsites: "ウェブサイト",
+      filterApps: "アプリ",
+      categoryApp: "アプリ",
+      categoryWebsite: "ウェブサイト",
+      motivio: {
+        description:
+          "メンタルヘルスと生産性のためのアプリ。気分トラッカー、日記、呼吸エクササイズ、毎日のインスピレーション引用を提供します。",
+      },
+      code: "コード",
+      liveDemo: "見る",
+    },
+    contact: {
+      contactBadge: "お問い合わせ",
+      title1: "一緒に何か",
+      title2: "特別なものを作りましょう",
+      subtitle:
+        "現在、新しい機会を探しています。質問がある場合、または単に挨拶したい場合でも、私の受信トレイは常に開いています。",
+      emailCopied: "メールをコピーしました！",
+      readyToPaste: "貼り付け準備完了",
+      copyright: "全著作権所有。",
+      privacyPolicy: "プライバシーポリシー",
+      termsOfService: "利用規約",
+      successTitle: "メッセージが送信されました！",
+      successMessage:
+        "お問い合わせいただきありがとうございます。できるだけ早く返信いたします。",
+      errorTitle: "送信エラー",
+      errorMessage: "問題が発生しました。後でもう一度お試しください。",
+      close: "閉じる",
+      form: {
+        nameLabel: "名前",
+        namePlaceholder: "山田太郎",
+        emailLabel: "メール",
+        emailPlaceholder: "yamada@example.com",
+        subjectLabel: "件名",
+        subjectPlaceholder: "見積もり依頼 / コラボレーション",
+        messageLabel: "メッセージ",
+        messagePlaceholder: "こんにちは！話し合いたいことがあります...",
+        sendButton: "メッセージを送信",
+        sending: "送信中...",
+      },
+    },
+  },
+  ar: {
+    nav: {
+      about: "عني",
+      projects: "المشاريع",
+      contact: "اتصل",
+    },
+    hero: {
+      greeting: "مرحبا بالعالم، أنا أوسكار",
+      title1: "بناء",
+      title2: "تجارب رقمية",
+      iAm: "أنا",
+      role1: "مطور ويب.",
+      role2: "مطور أندرويد.",
+      role3: "مبرمج فول ستاك.",
+      description:
+        "أتخصص في إنشاء مواقع ويب حديثة وتطبيقات أندرويد أصلية. أجمع بين مرونة React وأداء Kotlin لتقديم منتجات تبدو رائعة وتعمل بسلاسة.",
+      viewWork: "عرض أعمالي",
+    },
+    about: {
+      title: "عن",
+      titleAccent: "نفسي",
+      paragraph1:
+        "أنا طالب تكنولوجيا معلومات طموح أحول الشغف إلى كود احترافي. خلال العام الماضي، ركزت على بناء تطبيقات ويب وموبايل قابلة للتوسع تحل مشاكل حقيقية.",
+      paragraph2:
+        "أجمع بين التعليم التقني والنهج العملي القائم على المشاريع. أسترشد بمبادئ 'الكود النظيف' والرغبة في إتقان التقنيات الجديدة بسرعة. هدفي هو ربط المنطق الوظيفي بتجربة مستخدم سلسة.",
+      skills: {
+        frontend: {
+          title: "نظام الواجهة الأمامية",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "تطبيقات الموبايل",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "اللغات الأساسية",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "أدوات التطوير",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "مشاريع",
+      titleAccent: "مميزة",
+      subtitle: "مجموعة من أفضل أعمالي على منصات الويب والموبايل.",
+      filterAll: "جميع الأعمال",
+      filterWebsites: "مواقع الويب",
+      filterApps: "التطبيقات",
+      categoryApp: "تطبيق",
+      categoryWebsite: "موقع ويب",
+      motivio: {
+        description:
+          "تطبيق للصحة النفسية والإنتاجية. يوفر متتبع المزاج، يوميات، تمارين التنفس، واقتباسات يومية ملهمة.",
+      },
+      code: "الكود",
+      liveDemo: "عرض",
+    },
+    contact: {
+      contactBadge: "تواصل معي",
+      title1: "لنبني شيئًا",
+      title2: "استثنائيًا",
+      subtitle:
+        "أبحث حاليًا عن فرص جديدة. سواء كان لديك سؤال أو تريد فقط أن تقول مرحبًا، صندوق بريدي مفتوح دائمًا.",
+      emailCopied: "تم نسخ البريد الإلكتروني!",
+      readyToPaste: "جاهز للصق",
+      copyright: "جميع الحقوق محفوظة.",
+      privacyPolicy: "سياسة الخصوصية",
+      termsOfService: "شروط الخدمة",
+      successTitle: "تم إرسال الرسالة!",
+      successMessage: "شكرًا على التواصل. سأرد في أقرب وقت ممكن.",
+      errorTitle: "خطأ في الإرسال",
+      errorMessage: "حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقًا.",
+      close: "إغلاق",
+      form: {
+        nameLabel: "الاسم",
+        namePlaceholder: "أحمد محمد",
+        emailLabel: "البريد الإلكتروني",
+        emailPlaceholder: "ahmed@example.com",
+        subjectLabel: "الموضوع",
+        subjectPlaceholder: "طلب عرض أسعار / تعاون",
+        messageLabel: "الرسالة",
+        messagePlaceholder: "مرحبًا! أود مناقشة...",
+        sendButton: "إرسال الرسالة",
+        sending: "جارٍ الإرسال...",
+      },
+    },
+  },
+  hi: {
+    nav: {
+      about: "मेरे बारे में",
+      projects: "परियोजनाएं",
+      contact: "संपर्क",
+    },
+    hero: {
+      greeting: "नमस्ते दुनिया, मैं ऑस्कर हूं",
+      title1: "निर्माण",
+      title2: "डिजिटल अनुभव",
+      iAm: "मैं हूं",
+      role1: "एक वेब डेवलपर।",
+      role2: "एक एंड्रॉइड डेवलपर।",
+      role3: "एक फुल स्टैक प्रोग्रामर।",
+      description:
+        "मैं आधुनिक वेबसाइट और नेटिव एंड्रॉइड एप्लिकेशन बनाने में विशेषज्ञ हूं। मैं React की लचीलापन और Kotlin के प्रदर्शन को मिलाकर ऐसे उत्पाद प्रदान करता हूं जो बेहतरीन दिखते हैं और सुचारू रूप से चलते हैं।",
+      viewWork: "मेरा काम देखें",
+    },
+    about: {
+      title: "मेरे",
+      titleAccent: "बारे में",
+      paragraph1:
+        "मैं एक महत्वाकांक्षी IT छात्र हूं जो जुनून को पेशेवर कोड में बदल रहा हूं। पिछले एक साल से, मैं स्केलेबल वेब और मोबाइल एप्लिकेशन बनाने पर ध्यान केंद्रित कर रहा हूं जो वास्तविक समस्याओं को हल करते हैं।",
+      paragraph2:
+        "मैं तकनीकी शिक्षा को व्यावहारिक, परियोजना-आधारित दृष्टिकोण के साथ जोड़ता हूं। मैं 'क्लीन कोड' सिद्धांतों और नई तकनीकों में तेजी से महारत हासिल करने की इच्छा से प्रेरित हूं। मेरा लक्ष्य कार्यात्मक तर्क को सुचारू उपयोगकर्ता अनुभव से जोड़ना है।",
+      skills: {
+        frontend: {
+          title: "फ्रंटएंड इकोसिस्टम",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "मोबाइल ऐप्स",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "मुख्य भाषाएं",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "डेव टूल्स",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "चुनिंदा",
+      titleAccent: "परियोजनाएं",
+      subtitle:
+        "वेब और मोबाइल प्लेटफॉर्म पर मेरे सर्वश्रेष्ठ कार्यों का संग्रह।",
+      filterAll: "सभी कार्य",
+      filterWebsites: "वेबसाइट",
+      filterApps: "ऐप्स",
+      categoryApp: "ऐप",
+      categoryWebsite: "वेबसाइट",
+      motivio: {
+        description:
+          "मानसिक स्वास्थ्य और उत्पादकता के लिए एक ऐप। मूड ट्रैकर, डायरी, सांस लेने के व्यायाम और दैनिक प्रेरक उद्धरण प्रदान करता है।",
+      },
+      code: "कोड",
+      liveDemo: "देखें",
+    },
+    contact: {
+      contactBadge: "संपर्क करें",
+      title1: "आइए कुछ बनाएं",
+      title2: "असाधारण",
+      subtitle:
+        "मैं वर्तमान में नए अवसरों की तलाश में हूं। चाहे आपका कोई सवाल हो या बस नमस्ते कहना चाहते हों, मेरा इनबॉक्स हमेशा खुला है।",
+      emailCopied: "ईमेल कॉपी हो गया!",
+      readyToPaste: "पेस्ट करने के लिए तैयार",
+      copyright: "सर्वाधिकार सुरक्षित।",
+      privacyPolicy: "गोपनीयता नीति",
+      termsOfService: "सेवा की शर्तें",
+      successTitle: "संदेश भेज दिया गया!",
+      successMessage:
+        "संपर्क करने के लिए धन्यवाद। मैं जल्द से जल्द जवाब दूंगा।",
+      errorTitle: "भेजने में त्रुटि",
+      errorMessage: "कुछ गलत हो गया। कृपया बाद में पुनः प्रयास करें।",
+      close: "बंद करें",
+      form: {
+        nameLabel: "नाम",
+        namePlaceholder: "राज कुमार",
+        emailLabel: "ईमेल",
+        emailPlaceholder: "raj@example.com",
+        subjectLabel: "विषय",
+        subjectPlaceholder: "कोटेशन अनुरोध / सहयोग",
+        messageLabel: "संदेश",
+        messagePlaceholder: "नमस्ते! मैं चर्चा करना चाहूंगा...",
+        sendButton: "संदेश भेजें",
+        sending: "भेजा जा रहा है...",
+      },
+    },
+  },
+  nl: {
+    nav: {
+      about: "Over mij",
+      projects: "Projecten",
+      contact: "Contact",
+    },
+    hero: {
+      greeting: "HALLO WERELD, IK BEN OSKAR",
+      title1: "Bouwen aan",
+      title2: "Digitale Ervaringen",
+      iAm: "Ik ben",
+      role1: "een Web Developer.",
+      role2: "een Android Developer.",
+      role3: "een Full Stack Programmeur.",
+      description:
+        "Ik specialiseer me in het maken van moderne websites en native Android-applicaties. Ik combineer de flexibiliteit van React met de prestaties van Kotlin om producten te leveren die er geweldig uitzien en soepel werken.",
+      viewWork: "Bekijk mijn werk",
+    },
+    about: {
+      title: "Over",
+      titleAccent: "Mij",
+      paragraph1:
+        "Ik ben een ambitieuze IT-student die passie omzet in professionele code. Het afgelopen jaar heb ik me gericht op het bouwen van schaalbare Web- en Mobile-applicaties die echte problemen oplossen.",
+      paragraph2:
+        "Ik combineer technische opleiding met een praktische, projectgebaseerde aanpak. Ik word gedreven door 'clean code' principes en de wens om snel nieuwe technologieën onder de knie te krijgen. Mijn doel is om functionele logica te verbinden met een soepele gebruikerservaring.",
+      skills: {
+        frontend: {
+          title: "Frontend Ecosysteem",
+          desc: "React, Svelte, Tailwind CSS",
+        },
+        mobile: {
+          title: "Mobiele Apps",
+          desc: "Flutter, Dart, Android SDK",
+        },
+        languages: {
+          title: "Kerntalen",
+          desc: "TypeScript, JavaScript (ES6+), Dart, HTML5/CSS3",
+        },
+        tools: {
+          title: "Dev Tools",
+          desc: "Git, VS Code, Android Studio, NPM",
+        },
+      },
+    },
+    projects: {
+      title: "Uitgelichte",
+      titleAccent: "Projecten",
+      subtitle:
+        "Een verzameling van mijn beste werk op web- en mobiele platforms.",
+      filterAll: "Al het Werk",
+      filterWebsites: "Websites",
+      filterApps: "Apps",
+      categoryApp: "App",
+      categoryWebsite: "Website",
+      motivio: {
+        description:
+          "Een app voor mentale gezondheid en productiviteit. Biedt stemmingstracker, dagboek, ademhalingsoefeningen en dagelijkse inspirerende citaten.",
+      },
+      code: "Code",
+      liveDemo: "Bekijken",
+    },
+    contact: {
+      contactBadge: "Neem contact op",
+      title1: "Laten we Iets",
+      title2: "Buitengewoons Bouwen",
+      subtitle:
+        "Ik ben momenteel op zoek naar nieuwe kansen. Of je nu een vraag hebt of gewoon hallo wilt zeggen, mijn inbox staat altijd open.",
+      emailCopied: "Email Gekopieerd!",
+      readyToPaste: "Klaar om te plakken",
+      copyright: "Alle rechten voorbehouden.",
+      privacyPolicy: "Privacybeleid",
+      termsOfService: "Servicevoorwaarden",
+      successTitle: "Bericht Verzonden!",
+      successMessage:
+        "Bedankt voor je bericht. Ik neem zo snel mogelijk contact met je op.",
+      errorTitle: "Verzendfout",
+      errorMessage: "Er is iets misgegaan. Probeer het later opnieuw.",
+      close: "Sluiten",
+      form: {
+        nameLabel: "Naam",
+        namePlaceholder: "Jan de Vries",
+        emailLabel: "Email",
+        emailPlaceholder: "jan@voorbeeld.nl",
+        subjectLabel: "Onderwerp",
+        subjectPlaceholder: "Offerte aanvraag / Samenwerking",
+        messageLabel: "Bericht",
+        messagePlaceholder: "Hallo! Ik zou graag willen bespreken...",
+        sendButton: "Bericht verzenden",
+        sending: "Verzenden...",
+      },
     },
   },
 };

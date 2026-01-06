@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { AtSign, FileText, MessageSquare, Send, User } from "lucide-react";
 import React from "react";
+import { useLanguage } from "../../../contexts/LanguageContext";
 import { useContactForm } from "../../../hooks/useContactForm";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
@@ -12,6 +13,7 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
+  const { t } = useLanguage();
   const {
     formData,
     errors,
@@ -56,8 +58,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
             <Input
               id="name"
               name="name"
-              label="Imię"
-              placeholder="Jan Kowalski"
+              label={t.contact.form.nameLabel}
+              placeholder={t.contact.form.namePlaceholder}
               value={formData.name}
               onChange={handleChange}
               error={errors.name}
@@ -69,8 +71,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
             <Input
               id="email"
               name="email"
-              label="Email"
-              placeholder="jan@example.com"
+              label={t.contact.form.emailLabel}
+              placeholder={t.contact.form.emailPlaceholder}
               type="email"
               value={formData.email}
               onChange={handleChange}
@@ -84,8 +86,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
           <Input
             id="subject"
             name="subject"
-            label="Temat"
-            placeholder="Zapytanie ofertowe / Współpraca"
+            label={t.contact.form.subjectLabel}
+            placeholder={t.contact.form.subjectPlaceholder}
             value={formData.subject}
             onChange={handleChange}
             error={errors.subject}
@@ -96,8 +98,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
           <Textarea
             id="message"
             name="message"
-            label="Treść wiadomości"
-            placeholder="Cześć! Chciałbym/chciałabym omówić..."
+            label={t.contact.form.messageLabel}
+            placeholder={t.contact.form.messagePlaceholder}
             rows={6}
             value={formData.message}
             onChange={handleChange}
@@ -114,7 +116,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
               !status.includes("loading") && <Send className="w-5 h-5" />
             }
           >
-            {status === "loading" ? "Wysyłanie..." : "Wyślij wiadomość"}
+            {status === "loading"
+              ? t.contact.form.sending
+              : t.contact.form.sendButton}
           </Button>
         </form>
       </div>

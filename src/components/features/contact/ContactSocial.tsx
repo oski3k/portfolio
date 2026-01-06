@@ -1,6 +1,6 @@
-import { Github, Linkedin, Mail, X } from "lucide-react";
+import { Github, Linkedin, Mail, UserCircle, X } from "lucide-react";
 import React from "react";
-import { EMAIL, SOCIAL_LINKS } from "../../../constants";
+import { EMAIL } from "../../../constants";
 import { trackContactFormSubmit } from "../../../hooks/useAnalytics";
 import MagneticIcon from "./MagneticIcon";
 
@@ -9,15 +9,38 @@ interface ContactSocialProps {
 }
 
 const ContactSocial: React.FC<ContactSocialProps> = ({ onCopyEmail }) => {
+  // UWAGA: Wpisałem tutaj Twoje nowe linki bezpośrednio, aby mieć pewność,
+  // że są zgodne ze strategią SEO (bez zbędnych cyferek i błędów).
   const socialItems = [
-    { icon: Github, href: SOCIAL_LINKS.GITHUB, name: "GitHub" },
-    { icon: Linkedin, href: SOCIAL_LINKS.LINKEDIN, name: "LinkedIn" },
-    { icon: X, href: SOCIAL_LINKS.X, name: "X/Twitter" },
-    { icon: Mail, href: `mailto:${EMAIL}`, name: "Email" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/oskarsledz/",
+      name: "LinkedIn",
+    },
+    {
+      icon: Github,
+      href: "https://github.com/oskarsledz",
+      name: "GitHub",
+    },
+    {
+      icon: X,
+      href: "https://x.com/oskarsledz",
+      name: "X (Twitter)",
+    },
+    {
+      icon: UserCircle,
+      href: "https://about.me/oskarsledz",
+      name: "About.me",
+    },
+    {
+      icon: Mail,
+      href: `mailto:${EMAIL}`,
+      name: "Email",
+    },
   ];
 
   return (
-    <div className="flex justify-center gap-8 mb-12">
+    <div className="flex justify-center gap-8 mb-12 flex-wrap">
       {socialItems.map((item, idx) => (
         <MagneticIcon
           key={idx}

@@ -40,8 +40,6 @@ const Contact: React.FC = () => {
     <Section id="contact" className="pb-32 pt-32 relative overflow-hidden">
       <FloatingParticles />
 
-      <FloatingParticles />
-
       <motion.div
         className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
         animate={{
@@ -80,7 +78,7 @@ const Contact: React.FC = () => {
             >
               <Sparkles className="w-4 h-4 text-accent" />
               <span className="text-sm text-accent font-medium">
-                Skontaktuj się ze mną
+                {t.contact.contactBadge}
               </span>
             </motion.div>
 
@@ -116,9 +114,9 @@ const Contact: React.FC = () => {
             <ContactSocial onCopyEmail={handleCopyEmail} />
           </motion.div>
 
-          <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+          <footer className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
             <p>
-              © {new Date().getFullYear()} Oski3K. {t.contact.copyright}
+              © {new Date().getFullYear()} Oskar Śledź. {t.contact.copyright}
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-slate-300 transition-colors">
@@ -128,7 +126,7 @@ const Contact: React.FC = () => {
                 {t.contact.termsOfService}
               </a>
             </div>
-          </div>
+          </footer>
         </div>
       </div>
 

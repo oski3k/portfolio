@@ -1,10 +1,11 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useLanguage } from "../../contexts/LanguageContext";
+import LanguageDropdown from "../ui/LanguageDropdown";
+import MobileMenu from "./MobileMenu";
 
 const Navbar: React.FC = () => {
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,7 +19,6 @@ const Navbar: React.FC = () => {
 
   const menuItems = [
     { label: t.nav.about, href: "#about" },
-    { label: t.nav.experience, href: "#experience" },
     { label: t.nav.projects, href: "#projects" },
     { label: t.nav.contact, href: "#contact" },
   ];
@@ -38,10 +38,6 @@ const Navbar: React.FC = () => {
         window.scrollTo({ top, behavior: "smooth" });
       }
     }
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(language === "pl" ? "en" : "pl");
   };
 
   return (
@@ -74,19 +70,7 @@ const Navbar: React.FC = () => {
             </a>
           ))}
 
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700 hover:border-accent/50 transition-colors ml-4"
-          >
-            <span
-              className={`fi fi-${
-                language === "pl" ? "pl" : "gb"
-              } rounded-full`}
-            />
-            <span className="text-xs font-mono font-bold text-slate-300">
-              {language.toUpperCase()}
-            </span>
-          </button>
+          <LanguageDropdown />
         </div>
 
         {/* Mobile Toggle */}
@@ -98,43 +82,12 @@ const Navbar: React.FC = () => {
           {isOpen ? <X /> : <Menu />}
         </button>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
-              className="fixed inset-0 bg-dark-bg flex flex-col items-center justify-center gap-8 md:hidden"
-            >
-              {menuItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={(e) => handleScrollTo(e, item.href)}
-                  className="text-3xl font-bold font-mono text-white hover:text-accent transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-3 px-6 py-3 bg-slate-800 rounded-full mt-8 border border-slate-700"
-              >
-                <span
-                  className={`fi fi-${
-                    language === "pl" ? "pl" : "gb"
-                  } text-xl rounded-full`}
-                />
-                <span className="text-lg font-mono font-bold text-white">
-                  {language === "pl" ? "Polski" : "English"}
-                </span>
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <MobileMenu
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          menuItems={menuItems}
+          onScrollTo={handleScrollTo}
+        />
       </div>
     </nav>
   );

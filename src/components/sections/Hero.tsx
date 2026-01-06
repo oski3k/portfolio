@@ -196,7 +196,7 @@ const Hero: React.FC = () => {
             <div className="absolute inset-6 rounded-full overflow-hidden border-2 border-slate-700/50 bg-slate-900 z-10 flex items-center justify-center group">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40 z-10 pointer-events-none" />
               <img
-                src="/avatar.png"
+                src="/oskar-sledz-fullstack.png"
                 alt="Oskar - Developer Profile"
                 className="w-full h-full object-cover opacity-75 group-hover:opacity-85 group-hover:scale-105 transition-all duration-500"
                 style={{
