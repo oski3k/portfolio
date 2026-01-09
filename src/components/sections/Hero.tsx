@@ -196,12 +196,9 @@ const Hero: React.FC = () => {
             <div className="absolute inset-6 rounded-full overflow-hidden border-2 border-slate-700/50 bg-slate-900 z-10 flex items-center justify-center group">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40 z-10 pointer-events-none" />
               <img
-                src="/oskar-sledz-fullstack.png"
+                src="/oskar-sledz-fullstack.jpg"
                 alt="Oskar - Developer Profile"
-                className="w-full h-full object-cover opacity-75 group-hover:opacity-85 group-hover:scale-105 transition-all duration-500"
-                style={{
-                  filter: "brightness(0.75) contrast(1.1) saturate(0.9)",
-                }}
+                className="w-full h-full object-cover scale-[1.02] group-hover:scale-110 transition-all duration-500"
               />
             </div>
           </div>
