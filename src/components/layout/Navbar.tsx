@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useLanguage } from "../../contexts/LanguageContext";
 import LanguageDropdown from "../ui/LanguageDropdown";
+import Magnetic from "../ui/Magnetic";
 import MobileMenu from "./MobileMenu";
 
 const Navbar: React.FC = () => {
@@ -49,10 +50,16 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <h1 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold font-mono tracking-tighter z-50 relative">
-          <a href="#" className="hover:text-accent transition-colors">
-            Oskar <span className="text-accent">Śledź</span>
-          </a>
+        <h1 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold font-mono tracking-tighter z-50 relative group">
+          <Magnetic strength={0.6}>
+            <a href="#" className="relative inline-block p-4 -m-4">
+              <span className="relative inline-block transition-transform duration-200 group-hover:-skew-x-12 group-hover:scale-105">
+                <span className="text-white">
+                  Oskar <span className="text-accent">Śledź</span>
+                </span>
+              </span>
+            </a>
+          </Magnetic>
         </h1>
 
         {/* Desktop Menu */}
