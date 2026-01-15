@@ -37,7 +37,7 @@ const Input: React.FC<InputProps> = ({
     <div className={`group ${containerClassName}`}>
       <motion.label
         htmlFor={id}
-        className="block text-sm font-medium text-slate-400 mb-2 flex items-center gap-2"
+        className="block text-sm xl:text-base 2xl:text-lg font-medium text-slate-400 mb-2 flex items-center gap-2"
         animate={{
           x: isFocused ? 5 : 0,
           color: isFocused ? "#ffffff" : "#94a3b8",
@@ -71,7 +71,7 @@ const Input: React.FC<InputProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           whileFocus={{ rotateX: 2 }}
-          className={`w-full px-4 py-3 bg-slate-900/50 border ${
+          className={`w-full px-4 py-3 xl:px-5 xl:py-4 2xl:px-6 2xl:py-5 xl:text-lg 2xl:text-xl bg-slate-900/50 border ${
             error
               ? "border-red-500 focus:border-red-400"
               : "border-slate-800 focus:border-accent"
@@ -86,7 +86,7 @@ const Input: React.FC<InputProps> = ({
             initial={{ opacity: 0, y: -10, x: -10 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, y: -10, x: -10 }}
-            className="text-red-400 text-sm mt-1 flex items-center gap-1"
+            className="text-red-400 text-sm xl:text-base 2xl:text-lg mt-1 flex items-center gap-1"
           >
             <AlertCircle className="w-3 h-3" />
             {error}

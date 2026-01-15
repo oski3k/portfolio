@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
           <div>
             <TextReveal>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4">
                 {t.projects.title}{" "}
                 <span className="text-accent">{t.projects.titleAccent}</span>
               </h2>
@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-slate-400 max-w-md"
+              className="text-slate-400 xl:text-lg 2xl:text-xl max-w-md"
             >
               {t.projects.subtitle}
             </motion.p>
@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
               <button
                 key={tab}
                 onClick={() => setFilter(tab)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-md text-sm xl:text-base 2xl:text-lg font-medium transition-all ${
                   filter === tab
                     ? "bg-accent text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
@@ -58,8 +58,8 @@ const Projects: React.FC = () => {
                 {tab === "All"
                   ? t.projects.filterAll
                   : tab === "Website"
-                  ? t.projects.filterWebsites
-                  : t.projects.filterApps}
+                    ? t.projects.filterWebsites
+                    : t.projects.filterApps}
               </button>
             ))}
           </motion.div>

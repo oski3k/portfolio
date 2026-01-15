@@ -49,12 +49,11 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a
-          href="#"
-          className="text-2xl font-bold font-mono tracking-tighter z-50 relative"
-        >
-          oski<span className="text-accent">3k</span>
-        </a>
+        <h1 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold font-mono tracking-tighter z-50 relative">
+          <a href="#" className="hover:text-accent transition-colors">
+            Oskar <span className="text-accent">Śledź</span>
+          </a>
+        </h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">

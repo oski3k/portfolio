@@ -77,13 +77,13 @@ const Contact: React.FC = () => {
               className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-6"
             >
               <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-sm text-accent font-medium">
+              <span className="text-sm xl:text-base 2xl:text-lg text-accent font-medium">
                 {t.contact.contactBadge}
               </span>
             </motion.div>
 
             <TextReveal>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-6">
                 {t.contact.title1} <br />
                 <span className="text-accent bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-500">
                   {t.contact.title2}
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-slate-400 mb-10 text-lg"
+              className="text-slate-400 xl:text-xl 2xl:text-2xl mb-10 text-lg"
             >
               {t.contact.subtitle}
             </motion.p>
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
             <ContactSocial onCopyEmail={handleCopyEmail} />
           </motion.div>
 
-          <footer className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+          <footer className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm xl:text-base 2xl:text-lg">
             <p>
               © {new Date().getFullYear()} Oskar Śledź. {t.contact.copyright}
             </p>

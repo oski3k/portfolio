@@ -115,7 +115,7 @@ export const translations: Record<Language, Translations> = {
       role2: "Android Developerem.",
       role3: "Full Stack Coderem.",
       description:
-        "Specjalizuję się w tworzeniu nowoczesnych stron internetowych i natywnych aplikacji na Androida. Łączę elastyczność Reacta z wydajnością Kotlina, aby dostarczać produkty, które świetnie wyglądają i działają płynnie.",
+        "Specjalizuję się w tworzeniu nowoczesnych stron internetowych w React i natywnych aplikacji mobilnych we Flutter. Łączę responsywny design z płynnym doświadczeniem użytkownika, aby dostarczać produkty, które świetnie wyglądają i działają na każdym urządzeniu.",
       viewWork: "Zobacz Moje Prace",
     },
     about: {
@@ -207,7 +207,7 @@ export const translations: Record<Language, Translations> = {
       role2: "an Android Developer.",
       role3: "a Full Stack Coder.",
       description:
-        "I specialize in creating modern websites and native Android applications. I combine the flexibility of React with the performance of Kotlin to deliver products that look great and run smoothly.",
+        "I specialize in creating modern websites with React and native mobile applications with Flutter. I combine responsive design with smooth user experience to deliver products that look great and work seamlessly on any device.",
       viewWork: "View My Work",
     },
     about: {
@@ -298,7 +298,7 @@ export const translations: Record<Language, Translations> = {
       role2: "ein Android-Entwickler.",
       role3: "ein Full-Stack-Programmierer.",
       description:
-        "Ich spezialisiere mich auf die Erstellung moderner Websites und nativer Android-Anwendungen. Ich kombiniere die Flexibilität von React mit der Leistung von Kotlin, um Produkte zu liefern, die großartig aussehen und reibungslos funktionieren.",
+        "Ich spezialisiere mich auf die Erstellung moderner Websites mit React und nativer mobiler Anwendungen mit Flutter. Ich kombiniere responsives Design mit flüssiger Benutzererfahrung, um Produkte zu liefern, die großartig aussehen und auf jedem Gerät nahtlos funktionieren.",
       viewWork: "Meine Arbeiten ansehen",
     },
     about: {
@@ -391,7 +391,7 @@ export const translations: Record<Language, Translations> = {
       role2: "un Développeur Android.",
       role3: "un Développeur Full Stack.",
       description:
-        "Je me spécialise dans la création de sites web modernes et d'applications Android natives. Je combine la flexibilité de React avec les performances de Kotlin pour livrer des produits qui ont fière allure et fonctionnent sans accroc.",
+        "Je me spécialise dans la création de sites web modernes avec React et d'applications mobiles natives avec Flutter. Je combine un design réactif avec une expérience utilisateur fluide pour livrer des produits qui ont fière allure et fonctionnent parfaitement sur n'importe quel appareil.",
       viewWork: "Voir mes travaux",
     },
     about: {
@@ -484,7 +484,7 @@ export const translations: Record<Language, Translations> = {
       role2: "un Desarrollador Android.",
       role3: "un Programador Full Stack.",
       description:
-        "Me especializo en crear sitios web modernos y aplicaciones Android nativas. Combino la flexibilidad de React con el rendimiento de Kotlin para entregar productos que se ven geniales y funcionan sin problemas.",
+        "Me especializo en crear sitios web modernos con React y aplicaciones móviles nativas con Flutter. Combino diseño responsivo con experiencia de usuario fluida para entregar productos que se ven geniales y funcionan perfectamente en cualquier dispositivo.",
       viewWork: "Ver mi trabajo",
     },
     about: {
@@ -576,7 +576,7 @@ export const translations: Record<Language, Translations> = {
       role2: "uno Sviluppatore Android.",
       role3: "un Programmatore Full Stack.",
       description:
-        "Mi specializzo nella creazione di siti web moderni e applicazioni Android native. Combino la flessibilità di React con le prestazioni di Kotlin per fornire prodotti che hanno un bell'aspetto e funzionano senza problemi.",
+        "Mi specializzo nella creazione di siti web moderni con React e applicazioni mobili native con Flutter. Combino design responsivo con un'esperienza utente fluida per fornire prodotti che hanno un bell'aspetto e funzionano perfettamente su qualsiasi dispositivo.",
       viewWork: "Vedi il mio lavoro",
     },
     about: {
@@ -668,7 +668,7 @@ export const translations: Record<Language, Translations> = {
       role2: "um Desenvolvedor Android.",
       role3: "um Programador Full Stack.",
       description:
-        "Especializo-me na criação de sites modernos e aplicativos Android nativos. Combino a flexibilidade do React com o desempenho do Kotlin para entregar produtos que têm ótima aparência e funcionam perfeitamente.",
+        "Especializo-me na criação de sites modernos com React e aplicativos móveis nativos com Flutter. Combino design responsivo com experiência de usuário fluida para entregar produtos que têm ótima aparência e funcionam perfeitamente em qualquer dispositivo.",
       viewWork: "Ver meu trabalho",
     },
     about: {
@@ -760,7 +760,7 @@ export const translations: Record<Language, Translations> = {
       role2: "Android-разработчик.",
       role3: "Full Stack программист.",
       description:
-        "Я специализируюсь на создании современных веб-сайтов и нативных Android-приложений. Я сочетаю гибкость React с производительностью Kotlin для создания продуктов, которые отлично выглядят и работают плавно.",
+        "Я специализируюсь на создании современных веб-сайтов с React и нативных мобильных приложений с Flutter. Я сочетаю адаптивный дизайн с плавным пользовательским опытом для создания продуктов, которые отлично выглядят и работают безупречно на любом устройстве.",
       viewWork: "Посмотреть работы",
     },
     about: {

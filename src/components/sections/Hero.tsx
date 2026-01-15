@@ -60,31 +60,33 @@ const Hero: React.FC = () => {
 
       <motion.div
         style={{ y }}
-        className="max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10"
+        className="max-w-6xl xl:max-w-7xl 2xl:max-w-screen-2xl w-full mx-auto grid md:grid-cols-2 gap-12 xl:gap-16 2xl:gap-20 items-center relative z-10"
       >
         <div className="order-2 md:order-1">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-2 mb-4 text-accent font-mono font-medium px-3 py-1 bg-accent/10 w-fit rounded-full border border-accent/20"
+            className="flex items-center gap-2 mb-4 text-accent font-mono font-medium px-3 py-1 xl:px-4 xl:py-2 2xl:px-5 2xl:py-2.5 bg-accent/10 w-fit rounded-full border border-accent/20"
           >
-            <Terminal className="w-4 h-4" />
-            <span className="text-sm">{t.hero.greeting}</span>
+            <Terminal className="w-4 h-4 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6" />
+            <span className="text-sm xl:text-base 2xl:text-lg">
+              {t.hero.greeting}
+            </span>
           </motion.div>
 
           <div className="mb-6">
             <TextReveal delay={0.3}>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+              <h2 className="text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight text-white leading-tight">
                 {t.hero.title1}
-              </h1>
+              </h2>
             </TextReveal>
             <TextReveal delay={0.5}>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">
+              <h2 className="text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight leading-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400">
                   {t.hero.title2}
                 </span>
-              </h1>
+              </h2>
             </TextReveal>
           </div>
 
@@ -92,7 +94,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-xl md:text-3xl text-slate-300 h-10 mb-6 font-mono font-light"
+            className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl text-slate-300 h-10 xl:h-12 2xl:h-16 mb-6 font-mono font-light"
           >
             {t.hero.iAm}{" "}
             <span className="text-accent font-semibold">{currentText}</span>
@@ -100,7 +102,7 @@ const Hero: React.FC = () => {
           </motion.div>
 
           <TextReveal delay={0.9}>
-            <p className="text-slate-400 max-w-lg mb-8 leading-relaxed text-lg">
+            <p className="text-slate-400 max-w-lg xl:max-w-xl 2xl:max-w-2xl mb-8 leading-relaxed text-lg xl:text-xl 2xl:text-2xl">
               {t.hero.description}
             </p>
           </TextReveal>
@@ -158,7 +160,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="order-1 md:order-2 flex justify-center relative"
         >
-          <div className="relative w-80 h-80 md:w-[520px] md:h-[520px]">
+          <div className="relative w-80 h-80 md:w-[520px] md:h-[520px] xl:w-[600px] xl:h-[600px] 2xl:w-[680px] 2xl:h-[680px]">
             <div className="absolute inset-0 rounded-full border border-slate-800 animate-[spin_10s_linear_infinite]" />
             <div className="absolute inset-4 rounded-full border border-slate-800 border-dashed animate-[spin_15s_linear_infinite_reverse]" />
             <div className="absolute inset-1/4 rounded-full bg-gradient-to-tr from-accent/30 to-purple-500/20 blur-3xl animate-pulse" />

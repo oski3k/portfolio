@@ -33,7 +33,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <TextReveal>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-6">
                 {t.about.title}{" "}
                 <span className="text-accent">{t.about.titleAccent}</span>
               </h2>
@@ -48,10 +48,10 @@ const About: React.FC = () => {
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/20 transition-colors duration-500"></div>
 
-              <p className="text-slate-300 leading-relaxed mb-6">
+              <p className="text-slate-300 xl:text-lg 2xl:text-xl leading-relaxed mb-6">
                 {t.about.paragraph1}
               </p>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-slate-300 xl:text-lg 2xl:text-xl leading-relaxed">
                 {t.about.paragraph2}
               </p>
             </motion.div>
@@ -59,7 +59,7 @@ const About: React.FC = () => {
 
           <motion.div style={{ scale, opacity }} className="hidden md:block">
             <TextReveal>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-6">
                 {t.about.title}{" "}
                 <span className="text-accent">{t.about.titleAccent}</span>
               </h2>
@@ -74,10 +74,10 @@ const About: React.FC = () => {
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/20 transition-colors duration-500"></div>
 
-              <p className="text-slate-300 leading-relaxed mb-6">
+              <p className="text-slate-300 xl:text-lg 2xl:text-xl leading-relaxed mb-6">
                 {t.about.paragraph1}
               </p>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-slate-300 xl:text-lg 2xl:text-xl leading-relaxed">
                 {t.about.paragraph2}
               </p>
             </motion.div>
@@ -102,10 +102,12 @@ const About: React.FC = () => {
               >
                 {skill.icon}
               </motion.div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg xl:text-xl 2xl:text-2xl font-semibold text-white mb-2">
                 {skill.title}
               </h3>
-              <p className="text-sm text-slate-400">{skill.desc}</p>
+              <p className="text-sm xl:text-base 2xl:text-lg text-slate-400">
+                {skill.desc}
+              </p>
             </motion.div>
           ))}
         </div>

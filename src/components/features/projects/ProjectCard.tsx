@@ -61,10 +61,10 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
           transition={{ duration: 0.3 }}
           className="bg-slate-900/90 backdrop-blur-xl p-6 rounded-xl border border-white/5 shadow-xl"
         >
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
+          <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
             {project.title}
           </h3>
-          <p className="text-slate-400 text-sm mb-4 line-clamp-2">
+          <p className="text-slate-400 text-sm xl:text-base 2xl:text-lg mb-4 line-clamp-2">
             {project.description}
           </p>
 
@@ -72,7 +72,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700"
+                className="text-xs xl:text-sm 2xl:text-base px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700"
               >
                 {t}
               </span>
@@ -86,7 +86,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
                 onClick={() =>
                   trackProjectClick(project.title, project.githubUrl)
                 }
-                className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm xl:text-base 2xl:text-lg font-medium text-slate-400 hover:text-white transition-colors"
               >
                 <Github size={16} /> {t.projects.code}
               </a>
@@ -99,7 +99,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
                 onClick={() =>
                   trackProjectClick(project.title, project.liveUrl)
                 }
-                className="flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-glow transition-colors"
+                className="flex items-center gap-2 text-sm xl:text-base 2xl:text-lg font-medium text-accent hover:text-accent-glow transition-colors"
               >
                 <ExternalLink size={16} /> {t.projects.liveDemo}
               </a>

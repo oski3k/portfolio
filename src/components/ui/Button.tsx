@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "px-8 py-4 font-semibold rounded-xl shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group flex items-center justify-center gap-2";
+    "px-8 py-4 xl:px-10 xl:py-5 2xl:px-12 2xl:py-6 xl:text-lg 2xl:text-xl font-semibold rounded-xl shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group flex items-center justify-center gap-2";
 
   const variants = {
     primary:
