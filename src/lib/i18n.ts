@@ -66,8 +66,12 @@ export interface Translations {
     motivio: {
       description: string;
     };
+    bodylog: {
+      description: string;
+    };
     code: string;
     liveDemo: string;
+    testingPhase: string;
   };
   contact: {
     contactBadge: string;
@@ -158,8 +162,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Aplikacja do dbania o zdrowie psychiczne i produktywność. Oferuje tracker nastroju, dziennik, ćwiczenia oddechowe oraz codzienne cytaty, które inspirują do działania.",
       },
+      bodylog: {
+        description:
+          "Aplikacja do monitorowania postępów sylwetkowych i kontroli wagi. Oferuje rejestr wymiarów ciała, galerię zdjęć porównawczych oraz analizę wyników wspieraną przez AI.",
+      },
       code: "Kod",
       liveDemo: "Zobacz",
+      testingPhase: "W fazie testów",
     },
     contact: {
       contactBadge: "Skontaktuj się ze mną",
@@ -249,8 +258,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "An app for mental health and productivity. Features mood tracker, journal, breathing exercises, and daily quotes to inspire action.",
       },
+      bodylog: {
+        description:
+          "App for monitoring body progress and weight control. Offers body measurement log, comparative photo gallery, and AI-supported result analysis.",
+      },
       code: "Code",
       liveDemo: "View",
+      testingPhase: "Testing Phase",
     },
     contact: {
       contactBadge: "Get in touch",
@@ -341,8 +355,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Eine App für psychische Gesundheit und Produktivität. Bietet Stimmungs-Tracker, Tagebuch, Atemübungen und tägliche Zitate zur Inspiration.",
       },
+      bodylog: {
+        description:
+          "App zur Überwachung von Körperfortschritten und Gewichtskontrolle. Bietet Körpermaß-Protokoll, Vergleichsfotogalerie und KI-gestützte Ergebnisanalyse.",
+      },
       code: "Code",
       liveDemo: "Ansehen",
+      testingPhase: "Testphase",
     },
     contact: {
       contactBadge: "Kontaktieren Sie mich",
@@ -434,8 +453,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Une application pour la santé mentale et la productivité. Propose un tracker d'humeur, un journal, des exercices de respiration et des citations quotidiennes inspirantes.",
       },
+      bodylog: {
+        description:
+          "Application pour suivre les progrès corporels et contrôler le poids. Offre un journal des mensurations, une galerie de photos comparatives et une analyse des résultats assistée par IA.",
+      },
       code: "Code",
       liveDemo: "Voir",
+      testingPhase: "Phase de test",
     },
     contact: {
       contactBadge: "Contactez-moi",
@@ -527,8 +551,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Una aplicación para la salud mental y la productividad. Ofrece seguimiento del estado de ánimo, diario, ejercicios de respiración y citas diarias inspiradoras.",
       },
+      bodylog: {
+        description:
+          "Aplicación para monitorear el progreso corporal y controlar el peso. Ofrece registro de medidas corporales, galería de fotos comparativas y análisis de resultados con IA.",
+      },
       code: "Código",
       liveDemo: "Ver",
+      testingPhase: "Fase de prueba",
     },
     contact: {
       contactBadge: "Contáctame",
@@ -619,8 +648,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Un'app per la salute mentale e la produttività. Offre tracker dell'umore, diario, esercizi di respirazione e citazioni quotidiane per ispirare l'azione.",
       },
+      bodylog: {
+        description:
+          "App per monitorare i progressi fisici e controllare il peso. Offre registro delle misure corporee, galleria fotografica comparativa e analisi dei risultati supportata da IA.",
+      },
       code: "Codice",
       liveDemo: "Vedi",
+      testingPhase: "Fase di test",
     },
     contact: {
       contactBadge: "Contattami",
@@ -711,8 +745,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Um app para saúde mental e produtividade. Oferece rastreador de humor, diário, exercícios de respiração e citações diárias inspiradoras.",
       },
+      bodylog: {
+        description:
+          "App para monitorar o progresso corporal e controle de peso. Oferece registro de medidas corporais, galeria de fotos comparativas e análise de resultados apoiada por IA.",
+      },
       code: "Código",
       liveDemo: "Ver",
+      testingPhase: "Fase de teste",
     },
     contact: {
       contactBadge: "Entre em contato",
@@ -802,8 +841,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Приложение для психического здоровья и продуктивности. Включает трекер настроения, дневник, дыхательные упражнения и ежедневные цитаты для вдохновения.",
       },
+      bodylog: {
+        description:
+          "Приложение для отслеживания прогресса тела и контроля веса. Предлагает журнал измерений тела, галерею сравнительных фото и анализ результатов с поддержкой ИИ.",
+      },
       code: "Код",
       liveDemo: "Смотреть",
+      testingPhase: "Фаза тестирования",
     },
     contact: {
       contactBadge: "Свяжитесь со мной",
@@ -892,8 +936,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "一款心理健康和生产力应用。提供情绪追踪器、日记、呼吸练习和每日励志名言。",
       },
+      bodylog: {
+        description:
+          "用于监测身体进度和控制体重的应用程序。提供身体测量日志、对比照片库和人工智能支持的结果分析。",
+      },
       code: "代码",
       liveDemo: "查看",
+      testingPhase: "测试阶段",
     },
     contact: {
       contactBadge: "联系我",
@@ -982,8 +1031,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "メンタルヘルスと生産性のためのアプリ。気分トラッカー、日記、呼吸エクササイズ、毎日のインスピレーション引用を提供します。",
       },
+      bodylog: {
+        description:
+          "身体の進捗状況と体重管理を監視するためのアプリ。身体測定ログ、比較写真ギャラリー、AIサポートによる結果分析を提供します。",
+      },
       code: "コード",
       liveDemo: "見る",
+      testingPhase: "テストフェーズ",
     },
     contact: {
       contactBadge: "お問い合わせ",
@@ -1073,8 +1127,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "تطبيق للصحة النفسية والإنتاجية. يوفر متتبع المزاج، يوميات، تمارين التنفس، واقتباسات يومية ملهمة.",
       },
+      bodylog: {
+        description:
+          "تطبيق لمراقبة تقدم الجسم والتحكم في الوزن. يوفر سجل قياسات الجسم، ومعرض صور مقارنة، وتحليل نتائج مدعوم بالذكاء الاصطناعي.",
+      },
       code: "الكود",
       liveDemo: "عرض",
+      testingPhase: "مرحلة الاختبار",
     },
     contact: {
       contactBadge: "تواصل معي",
@@ -1164,8 +1223,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "मानसिक स्वास्थ्य और उत्पादकता के लिए एक ऐप। मूड ट्रैकर, डायरी, सांस लेने के व्यायाम और दैनिक प्रेरक उद्धरण प्रदान करता है।",
       },
+      bodylog: {
+        description:
+          "शरीर की प्रगति और वजन नियंत्रण की निगरानी के लिए ऐप। शरीर माप लॉग, तुलनात्मक फोटो गैलरी और एआई-समर्थित परिणाम विश्लेषण प्रदान करता है।",
+      },
       code: "कोड",
       liveDemo: "देखें",
+      testingPhase: "परीक्षण चरण",
     },
     contact: {
       contactBadge: "संपर्क करें",
@@ -1256,8 +1320,13 @@ export const translations: Record<Language, Translations> = {
         description:
           "Een app voor mentale gezondheid en productiviteit. Biedt stemmingstracker, dagboek, ademhalingsoefeningen en dagelijkse inspirerende citaten.",
       },
+      bodylog: {
+        description:
+          "App voor het monitoren van lichaamsvoortgang en gewichtsbeheersing. Biedt lichaamsmeetlogboek, vergelijkende fotogalerij en AI-ondersteunde resultatenanalyse.",
+      },
       code: "Code",
       liveDemo: "Bekijken",
+      testingPhase: "Testfase",
     },
     contact: {
       contactBadge: "Neem contact op",

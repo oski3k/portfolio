@@ -12,4 +12,15 @@ export const getProjects = (t: Translations): Project[] => [
     githubUrl: "",
     liveUrl: "https://play.google.com/store/apps/details?id=com.oski3k.motivio",
   },
+  {
+    id: 2,
+    title: "BodyLog AI: Body Tracker",
+    category: "App",
+    description: t.projects.bodylog.description,
+    tech: ["Flutter", "Dart", "Android", "Firebase", "AI"],
+    image: "/bodylog.jpg",
+    isTesting: true,
+    githubUrl: "",
+    liveUrl: "",
+  },
 ];

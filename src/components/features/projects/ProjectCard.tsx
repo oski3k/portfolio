@@ -28,7 +28,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: 0 }}
       whileHover={{ y: -10 }}
       className="group relative rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-accent/50 transition-colors"
       style={{ perspective: 1000 }}
@@ -53,6 +53,14 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
               : t.projects.categoryWebsite}
           </span>
         </div>
+
+        {project.isTesting && (
+          <div className="absolute top-4 left-4 z-20 bg-yellow-500/90 backdrop-blur-md px-3 py-1 rounded-full border border-yellow-300/20 shadow-lg">
+            <span className="text-xs font-bold text-black uppercasetracking-wider">
+              {t.projects.testingPhase}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="p-6 relative z-20 -mt-10">
@@ -64,7 +72,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
           <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
             {project.title}
           </h3>
-          <p className="text-slate-400 text-sm xl:text-base 2xl:text-lg mb-4 line-clamp-2">
+          <p className="text-slate-400 text-sm xl:text-base 2xl:text-lg mb-4">
             {project.description}
           </p>
 

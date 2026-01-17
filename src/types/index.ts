@@ -7,6 +7,7 @@ export interface Project {
   image: string;
   githubUrl: string;
   liveUrl: string;
+  isTesting?: boolean;
 }
 
 export interface NavItem {
