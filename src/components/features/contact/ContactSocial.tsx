@@ -19,12 +19,12 @@ const ContactSocial: React.FC<ContactSocialProps> = ({ onCopyEmail }) => {
     },
     {
       icon: Github,
-      href: "https://github.com/oskarsledz",
+      href: "https://github.com/oski3k",
       name: "GitHub",
     },
     {
       icon: X,
-      href: "https://x.com/oskarsledz",
+      href: "https://x.com/devoskarsledz",
       name: "X (Twitter)",
     },
     {
