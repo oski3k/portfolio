@@ -60,7 +60,6 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
     };
   }, [isOpen]);
 
-  // Prevent page scroll when scrolling inside dropdown
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (menuRef.current) {
@@ -68,7 +67,6 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
         const isScrollingDown = e.deltaY > 0;
         const isScrollingUp = e.deltaY < 0;
 
-        // Prevent page scroll only if dropdown can still scroll
         if (
           (isScrollingDown && scrollTop + clientHeight < scrollHeight) ||
           (isScrollingUp && scrollTop > 0)

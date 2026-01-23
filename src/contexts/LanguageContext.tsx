@@ -15,7 +15,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    // Get language from localStorage or default to Polish
     const saved = localStorage.getItem("language");
     return saved === "pl" ||
       saved === "en" ||

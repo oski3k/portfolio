@@ -11,7 +11,6 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import { usePageView, useTimeOnPage } from "./hooks/useAnalytics";
 
 const App: React.FC = () => {
-  // Initialize Firebase Analytics tracking
   usePageView("Portfolio Home");
   useTimeOnPage("Portfolio Home");
 

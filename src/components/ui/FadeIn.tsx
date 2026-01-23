@@ -26,10 +26,10 @@ const FadeIn: React.FC<FadeInProps> = ({
     direction === "up"
       ? { y: 40 }
       : direction === "down"
-      ? { y: -40 }
-      : direction === "left"
-      ? { x: 40 }
-      : { x: -40 };
+        ? { y: -40 }
+        : direction === "left"
+          ? { x: 40 }
+          : { x: -40 };
 
   const initial = { opacity: 0, ...directionOffset };
   const animate = isInView
@@ -44,7 +44,7 @@ const FadeIn: React.FC<FadeInProps> = ({
         transition={{
           duration: 0.7,
           delay: delay,
-          ease: [0.21, 0.47, 0.32, 0.98], // smooth spring-like ease
+          ease: [0.21, 0.47, 0.32, 0.98],
         }}
       >
         {children}

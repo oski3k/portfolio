@@ -1,4 +1,3 @@
-// Custom hook for Firebase Analytics tracking
 import {
   logEvent,
   setCurrentScreen,
@@ -7,7 +6,6 @@ import {
 import { useEffect } from "react";
 import { analytics } from "../lib/firebase";
 
-// Track page views
 export const usePageView = (pageName: string) => {
   useEffect(() => {
     if (analytics) {
@@ -21,7 +19,6 @@ export const usePageView = (pageName: string) => {
   }, [pageName]);
 };
 
-// Track custom events
 export const trackEvent = (
   eventName: string,
   eventParams?: Record<string, unknown>
@@ -31,7 +28,6 @@ export const trackEvent = (
   }
 };
 
-// Track project clicks
 export const trackProjectClick = (projectName: string, projectUrl: string) => {
   trackEvent("project_click", {
     project_name: projectName,
@@ -39,21 +35,18 @@ export const trackProjectClick = (projectName: string, projectUrl: string) => {
   });
 };
 
-// Track contact form submission
 export const trackContactFormSubmit = (method: string) => {
   trackEvent("contact_form_submit", {
     contact_method: method,
   });
 };
 
-// Track navigation clicks
 export const trackNavigation = (section: string) => {
   trackEvent("navigation_click", {
     section_name: section,
   });
 };
 
-// Track language change
 export const trackLanguageChange = (language: string) => {
   trackEvent("language_change", {
     new_language: language,
@@ -63,14 +56,12 @@ export const trackLanguageChange = (language: string) => {
   }
 };
 
-// Track scroll depth
 export const trackScrollDepth = (depth: number) => {
   trackEvent("scroll_depth", {
     scroll_percentage: depth,
   });
 };
 
-// Track social link clicks
 export const trackSocialClick = (platform: string, url: string) => {
   trackEvent("social_click", {
     platform: platform,
@@ -78,7 +69,6 @@ export const trackSocialClick = (platform: string, url: string) => {
   });
 };
 
-// Track time on page
 export const useTimeOnPage = (pageName: string) => {
   useEffect(() => {
     const startTime = Date.now();

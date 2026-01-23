@@ -1,4 +1,4 @@
-export const EMAIL = "kontakt@oski3k.dev"; // Replace with actual if different in constants
+export const EMAIL = "kontakt@oski3k.dev";
 
 export const SOCIAL_LINKS = {
   GITHUB: "https://github.com/oskarsledz",

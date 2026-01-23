@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, UserCircle } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, UserCircle } from "lucide-react";
 import React from "react";
 import { EMAIL } from "../../../constants";
 import { trackContactFormSubmit } from "../../../hooks/useAnalytics";
@@ -9,8 +9,6 @@ interface ContactSocialProps {
 }
 
 const ContactSocial: React.FC<ContactSocialProps> = ({ onCopyEmail }) => {
-  // UWAGA: Wpisałem tutaj Twoje nowe linki bezpośrednio, aby mieć pewność,
-  // że są zgodne ze strategią SEO (bez zbędnych cyferek i błędów).
   const socialItems = [
     {
       icon: Linkedin,
@@ -35,6 +33,11 @@ const ContactSocial: React.FC<ContactSocialProps> = ({ onCopyEmail }) => {
       ),
       href: "https://x.com/devoskarsledz",
       name: "X (Twitter)",
+    },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/oski3k/",
+      name: "Instagram",
     },
     {
       icon: UserCircle,
